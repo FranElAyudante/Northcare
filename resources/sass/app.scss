@@ -1,5 +1,9 @@
 /*globales*/
 @use 'globales/variables';
+@use 'globales/globales';
 
 /* componentes */
 @use 'componentes/header';
+@use 'componentes/footer';
+@use 'componentes/servicios';
+@use 'componentes/inicio';

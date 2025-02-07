@@ -1,3 +1,17 @@
-.header-title{
-    background: black;
+@use '../globales/variables' as v;
+
+.header-page{
+    background-color: v.$black;
+    padding-left: 80px !important;
+    padding-right: 40px !important;
+}
+
+.btns-header{
+    color: v.$white;
+    text-align: right;
+    z-index: 1;
+}
+
+.logo-northcare{
+    z-index: 1;
 }
