@@ -31,7 +31,6 @@
 
         <!-- Sección de Descuento -->
         <v-col cols="12" class="discount-section">
-          <img src="/Images/sombra.svg" alt="Sombra" class="sombra-image"/>
 
           <!-- Textos -->
           <div class="discount-text-left">

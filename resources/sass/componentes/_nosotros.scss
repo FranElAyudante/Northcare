@@ -1,0 +1,24 @@
+.expansion-preguntas{
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+    .v-expansion-panel{
+        background-color: transparent;
+        color: white;
+    }
+}
+
+.v-expansion-panel:not(:first-child)::after{
+    background-color: #4b4a4a;
+}
+
+.card-nosotros{
+    text-align: center !important;
+    color: white !important;
+    padding: 20px !important;
+    background-color: transparent !important;
+    .v-avatar{
+        border-radius: 50px !important;
+        border-color: white !important;
+    }
+}

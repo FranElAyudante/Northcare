@@ -17,8 +17,8 @@
 
         <!-- Beneficios -->
         <v-col v-for="(beneficio, index) in beneficios" :key="index" cols="12" sm="4">
-          <v-card class="pa-4 text-center" elevation="2">
-            <v-avatar size="40" class="mb-2" color="primary">{{ index + 1 }}</v-avatar>
+          <v-card class="card-nosotros" elevation="0">
+            <v-avatar size="40" class="mb-2" border="" color="transparent">{{ index + 1 }}</v-avatar>
             <h3 class="font-weight-bold">{{ beneficio.titulo }}</h3>
             <p>{{ beneficio.descripcion }}</p>
           </v-card>
@@ -52,8 +52,8 @@
 
       <v-row>
         <v-col cols="12">
-          <v-expansion-panels :elevation="0">
-            <v-expansion-panel v-for="(pregunta, index) in preguntas" :key="index">
+          <v-expansion-panels class="expansion-preguntas" :elevation="0">
+            <v-expansion-panel  v-for="(pregunta, index) in preguntas" :key="index">
               <v-expansion-panel-title>{{ pregunta.pregunta }}</v-expansion-panel-title>
               <v-expansion-panel-text>{{ pregunta.respuesta }}</v-expansion-panel-text>
             </v-expansion-panel>
@@ -96,7 +96,7 @@
     color: white;
   }
   .bg-grey-darken-3 {
-    background-color: #333;
+    background-color: #3D3C3C;
   }
   .rounded-lg {
     border-radius: 12px;
