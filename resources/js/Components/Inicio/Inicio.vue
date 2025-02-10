@@ -1,5 +1,5 @@
 <template>
-    <div class="services-section">
+    <div class="home-section">
       <v-row class="hero-section">
 
         <!-- Furgoneta -->

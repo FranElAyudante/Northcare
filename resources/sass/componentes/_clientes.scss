@@ -1,0 +1,26 @@
+.clientes-confianza {
+  text-align: left;
+  padding: 20px;
+  color: white;
+}
+
+.clientes-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cliente-item {
+  display: flex;
+  align-items: center;
+}
+
+.cliente-icon {
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 250px;
+  max-height: 300px;
+}

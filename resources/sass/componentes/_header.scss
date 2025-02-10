@@ -1,17 +1,32 @@
 @use '../globales/variables' as v;
 
-.header-page{
+.header-page {
     background-color: v.$black;
-    padding-left: 80px !important;
-    padding-right: 40px !important;
-}
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.btns-header{
+    @media (max-width: 768px) {
+      padding: 15px 20px;
+    }
+  }
+
+  .logo-northcare {
+    width: 150px;
+    z-index: 2;
+
+    @media (max-width: 768px) {
+      width: 120px;
+    }
+  }
+
+  .btns-header {
     color: v.$white;
     text-align: right;
-    z-index: 1;
-}
+    z-index: 2;
 
-.logo-northcare{
-    z-index: 1;
-}
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }

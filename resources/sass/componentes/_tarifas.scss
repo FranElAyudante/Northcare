@@ -1,0 +1,25 @@
+@use "../globales/variables" as v;
+
+.tarifas {
+    padding: 20px;
+    color: v.$white;
+  }
+
+  .tarifas-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: v.$black;
+  }
+
+  .tarifa-item {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-tarifas{
+    width: 1150px;
+    display: flex;
+    justify-content: center;
+  }

@@ -1,0 +1,84 @@
+@use "../globales/variables" as v;
+
+.services-section {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+  color: v.$white;
+
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  .service-item {
+    background: v.$black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
+
+    .service-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: color 0.3s;
+
+      .toggle-icon {
+        font-size: 1.5rem;
+      }
+
+      &:hover {
+        color: v.$white;
+      }
+    }
+
+    .service-content {
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+
+    .service-image {
+      text-align: center;
+      margin-top: 10px;
+      transition: transform 0.3s ease-in-out;
+      .service-image.active {
+        transform: translateY(20px);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+
+/* Animaciones */
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-section {
+    padding: 20px;
+  }
+
+  .service-item {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .service-title {
+    font-size: 1.2rem;
+  }
+}
