@@ -34,7 +34,7 @@
 
       <v-row>
         <v-col v-for="(especialista, index) in especialistas" :key="index" cols="12" sm="4">
-          <v-card class="pa-4" elevation="2">
+          <v-card class="card-fotos" elevation="0">
             <v-img :src="especialista.foto" height="200px" class="grey lighten-2"></v-img>
             <v-card-title class="text-center">{{ especialista.nombre }}</v-card-title>
             <v-card-subtitle class="text-center">{{ especialista.cargo }}</v-card-subtitle>
@@ -74,12 +74,12 @@
   ]);
 
   const especialistas = ref([
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "URL_IMAGEN_1" },
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "URL_IMAGEN_2" },
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "URL_IMAGEN_3" },
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "URL_IMAGEN_4" },
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "URL_IMAGEN_5" },
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "URL_IMAGEN_6" }
+    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" }
   ]);
 
   const preguntas = ref([

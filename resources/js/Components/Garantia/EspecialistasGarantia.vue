@@ -9,46 +9,41 @@
         </p>
       </section>
 
-      <section class="garantia">
-        <h2 class="subtitulo">SIN COMPLICACIONES:</h2>
-        <p class="detalle">Cuando nos necesites, ahí estaremos.</p>
+      <v-container class="info-container">
+    <v-row>
+      <v-col cols="12" class="text-white text-left">
+        <h2 class="font-weight-bold text-uppercase">SIN COMPLICACIONES:</h2>
+        <h3>Cuando nos necesites, ahí estaremos.</h3>
+      </v-col>
+    </v-row>
 
-        <div class="garantia-items">
-          <div class="item">
-            <h3>GARANTÍA</h3>
-            <p>
-              Tanto nuestros trabajos de mantenimiento como los de instalación y montaje cuentan con una garantía de 12 meses.
-            </p>
-          </div>
-
-          <div class="item">
-            <h3>DISPONIBILIDAD</h3>
-            <p>
-              Siempre a tu lado, los 365 días del año, con un horario laboral de 9:00h a 21:00h, adaptándonos a situaciones de urgencia.
-            </p>
-          </div>
-
-          <div class="item">
-            <h3>INTERLOCUTOR ÚNICO</h3>
-            <p>
-              La comunicación con nosotros es directa y sin intermediarios, asegurando un proceso ágil y claro.
-            </p>
-          </div>
-
-          <div class="item">
-            <h3>SEGURIDAD EN LOS PRECIOS</h3>
-            <p>
-              Nuestros precios son completamente transparentes, definidos en base a acuerdos firmados, evitando sorpresas.
-            </p>
-          </div>
-
-          <div class="item">
-            <h3>PRESENCIA</h3>
-            <p>
-              Estamos en varias regiones de España, asegurando una cobertura amplia y eficiente para tu negocio.
-            </p>
-          </div>
+    <v-row>
+      <v-col cols="12" md="6" class="text-white">
+        <div v-for="(item, index) in infoItems" :key="index" class="info-item">
+          <h4 class="font-italic font-weight-bold">{{ item.title }}</h4>
+          <p>{{ item.text }}</p>
         </div>
-      </section>
+      </v-col>
+
+      <v-col cols="12" md="6" class="image-container">
+        <v-img src="/images/kitchen.svg" alt="Cocina industrial" class="info-image"></v-img>
+      </v-col>
+    </v-row>
+  </v-container>
     </div>
   </template>
+<script>
+export default {
+  data() {
+    return {
+      infoItems: [
+        { title: 'GARANTÍA', text: 'Tanto nuestros trabajos de mantenimiento como los de instalación y montaje cuentan con una garantía de 12 meses...' },
+        { title: 'DISPONIBILIDAD', text: 'Siempre a tu lado, los 365 días del año, con un horario laboral de 9:00h a 21:00h...' },
+        { title: 'INTERLOCUTOR ÚNICO', text: 'La comunicación con nosotros es directa y sin intermediarios...' },
+        { title: 'SEGURIDAD EN LOS PRECIOS', text: 'Nuestros precios son completamente transparentes...' },
+        { title: 'PRESENCIA', text: 'Estamos en Cantabria, País Vasco, Asturias, Pamplona, Logroño, Navarra y Norte de Castilla y León...' }
+      ]
+    };
+  }
+};
+</script>

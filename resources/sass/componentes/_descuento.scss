@@ -1,0 +1,70 @@
+@use '../globales/variables' as v;
+/* Sección de Descuento */
+.discount-section {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 350px; /* Ajusta según sea necesario */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: v.$white;
+}
+
+/* Ajustes para los textos pequeños */
+.discount-text-left {
+    position: absolute;
+    top: 30%;
+    left: 17%;
+    color: v.$white;
+    font-size: 1rem;
+    max-width: 250px;
+    z-index: 3;
+    text-align: left;
+}
+
+.discount-text-right {
+    position: absolute;
+    top: 85%;
+    right: 12%;
+    color: v.$white;
+    font-size: 1rem;
+    max-width: 240px;
+    z-index: 3;
+    text-align: left;
+}
+
+
+/* Contenedor del texto */
+.discount-text {
+    position: absolute;
+    z-index: 3; /* Se coloca encima de la sombra */
+    color: v.$white;
+    text-align: center;
+    max-width: 600px;
+
+    h2 {
+        font-size: 4rem;
+        font-weight: bold;
+    }
+
+    .bold{
+        font-size: 4rem;
+        font-weight: bold;
+        color: transparent; /* Hace que el relleno sea transparente*/
+        -webkit-text-stroke: 2px v.$white; /* Define el borde */
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* Sombra azul */
+.sombra-image {
+    width: 100%;
+    position: absolute;
+    z-index: 1; /* En el fondo */
+    scale: .8;
+}

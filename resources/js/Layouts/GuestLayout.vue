@@ -2,6 +2,7 @@
     <div class="layout-conteiner">
         <Header/>
         <Inicio/>
+        <Descuento/>
         <Servicios/>
         <Clientes/>
         <Tarifas/>
@@ -26,6 +27,7 @@ import Tarifas from '@/Components/Tarifas/Tarifas.vue';
 import EspecialistasGarantia from '@/Components/Garantia/EspecialistasGarantia.vue';
 import Nosotros from '@/Components/Nosotros/Nosotros.vue';
 import Contacto from '@/Components/Contacto/Contacto.vue';
+import Descuento from '@/Components/Descuento/Descuento.vue';
 
 </script>
 <style scoped>

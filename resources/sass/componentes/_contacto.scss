@@ -1,0 +1,57 @@
+.custom-stepper {
+    background: transparent !important; /* Fondo transparente */
+    color: white !important;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+.contact-form-card{
+    border: 20px solid !important;
+    border-color: white !important;
+    border-width: 3px !important;
+    border-radius: 40px !important;
+}
+
+.v-card--variant-elevated, .v-card--variant-flat {
+    background: transparent!important;
+}
+
+
+.v-selection-control .v-label {
+    white-space: normal;
+    word-break: break-word;
+    height: 100%;
+    opacity: 1;
+    color: white;
+}
+
+  .title-card-contact{
+    color: white !important;
+  }
+
+  .custom-radio .v-label {
+    color: white !important; /* Hace que el texto del radio sea blanco */
+  }
+
+  .custom-radio .v-selection-control__input {
+    color: white !important; /* Hace que el círculo del radio sea blanco */
+  }
+
+  .conteiner-contact-info{
+    padding: 10px !important;
+  }
+
+  .v-selection-control__input {
+    border: 1px solid !important;
+    border-color: white !important;
+    width: 20px !important;
+    height: 20px !important;
+    background-color: transparent !important;
+  }
+
+  .v-stepper--alt-labels .v-stepper-item__avatar.v-avatar {
+    margin-bottom: 16px;
+    margin-inline-end: 0;
+    background-color: white !important;
+    color: black !important;
+}

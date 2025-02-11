@@ -67,3 +67,27 @@
   .item p {
     font-size: 1rem;
   }
+
+  .info-container {
+    background-color: black;
+    padding: 2rem;
+  }
+
+  .text-white {
+    color: white;
+  }
+
+  .info-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .info-image {
+    max-width: 100%;
+    border-radius: 8px;
+    filter: grayscale(100%);
+  }

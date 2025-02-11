@@ -1,9 +1,9 @@
 <template>
     <section class="tarifas">
-      <h2>TARIFAS: Encuentra la opción que mejor se adapta a las necesidades de tu negocio.</h2>
+      <div class="title-tarifa"><h2><b>TARIFAS</b>: Encuentra la opción que mejor se adapta a las necesidades de tu negocio.</h2></div>
+      <div class="tarifas-grid-title"><div v-for="(tarifa,index) in tarifas" :key="index" class="title-items"> <h1>{{ tarifa.nombre }}</h1></div></div>
       <div class="tarifas-grid">
         <div v-for="(tarifa, index) in tarifas" :key="index" class="tarifa-item" :style="{ backgroundColor: tarifa.color }">
-          <h3>{{ tarifa.nombre }}</h3>
           <ul>
             <li v-for="(beneficio, i) in tarifa.beneficios" :key="i">✔ {{ beneficio }}</li>
           </ul>
@@ -31,18 +31,21 @@
           {
             nombre: "Tarifa Basic (Trimestral)",
             beneficios: [
-              "Mantenimiento preventivo de climatización",
-              "Mantenimiento preventivo de refrigeración",
-              "Mantenimiento preventivo de motores",
+              "Mantenimiento preventivo trimestral de instalaciones de climatización.",
+              "Mantenimiento preventivo trimestral de cámaras de refrigeración y congelación.",
+              "Mantenimiento preventivo trimestral de motores de extracción e impulsión.",
             ],
             color: "#FFFFFF",
           },
           {
             nombre: "Tarifa Complet (Trimestral)",
             beneficios: [
-              "Todos los beneficios de la tarifa Basic",
-              "Mantenimiento de arcones y neveras",
-              "Mantenimiento de máquinas de hielo",
+              "Mantenimiento preventivo trimestral de instalaciones de climatización.",
+              "Mantenimiento preventivo trimestral de cámaras de refrigeración y congelación.",
+              "Mantenimiento preventivo trimestral de motores de extracción e impulsión.",
+              "Mantenimiento preventivo trimestral de arcones y neveras.",
+              "Mantenimiento preventivo semestral de máquinas hielo.",
+              "Mantenimiento preventivo semestral de freidoras.",
             ],
             color: "#B0D9FF",
           },
