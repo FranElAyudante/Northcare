@@ -1,14 +1,6 @@
 <template>
     <div class="home-section">
       <v-row class="hero-section">
-
-        <!-- Furgoneta -->
-        <v-col class="text-left">
-          <div class="path-wrapper">
-            <img src="/Images/furgo.svg" alt="Furgoneta" class="van-image" />
-          </div>
-        </v-col>
-
         <!-- Texto -->
         <v-col class="text-service">
           <h1>CUANDO ALGO FALLA, NOSOTROS RESPONDEMOS</h1>

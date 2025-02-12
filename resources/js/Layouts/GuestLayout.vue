@@ -2,7 +2,7 @@
     <div class="layout-conteiner">
         <Header/>
         <Inicio/>
-        <Descuento/>
+        <!-- <Descuento/> -->
         <Servicios/>
         <Clientes/>
         <Tarifas/>

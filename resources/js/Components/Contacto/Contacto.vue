@@ -152,10 +152,16 @@
         </v-stepper>
 
       </v-card>
+
+    <div class="imgNorte-conteiner">
+        <img src="/images/CuidandoNorte.svg" alt="CuidandoNorte" class="img-norte" />
+    </div>
+
     </v-container>
   </template>
 
   <script>
+
   export default {
     data() {
       return {

@@ -41,25 +41,8 @@
     color: white;
   }
 
-  /* Animación de la furgoneta */
   .van-container {
     position: relative;
     overflow: hidden;
-    padding-left: 1150px;
-  }
-  .van-animation {
-    right: -100px;
-    bottom: 0;
-    width: 80px;
-    animation: drive 5s linear infinite;
-  }
-
-  @keyframes drive {
-    0% {
-      right: -100px;
-    }
-    100% {
-      right: 100%;
-    }
   }
   </style>

@@ -1,13 +1,16 @@
 <template>
     <div class="especialistas-garantia">
       <section class="especialistas">
-        <h1 class="titulo">
-          ESPECIALISTAS EN <span class="frio">FRÍO</span> Y <span class="clima">CLIMA</span>
-        </h1>
+        <div class="conteiner-especialistas">
+            <img class="img-especialistas" src="images/ESPECIALISTAS.svg">
+        </div>
+        <div class="conteiner-descripcion">
         <p class="descripcion">
           Garantizamos el rendimiento óptimo de tus equipos de refrigeración y climatización industrial.
         </p>
+      </div>
       </section>
+
 
       <v-container class="info-container">
     <v-row>
