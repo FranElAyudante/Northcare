@@ -21,15 +21,14 @@
     </v-row>
 
     <v-row>
-      <v-col cols="12" md="6" class="text-white">
+      <v-col cols="12" md="6" class="image-container">
+        <v-img src="/images/kitchen.svg" alt="Cocina industrial" class="info-image"></v-img>
+      </v-col>
+      <v-col md="6" class="text-garantia">
         <div v-for="(item, index) in infoItems" :key="index" class="info-item">
           <h4 class="font-italic font-weight-bold">{{ item.title }}</h4>
           <p>{{ item.text }}</p>
         </div>
-      </v-col>
-
-      <v-col cols="12" md="6" class="image-container">
-        <v-img src="/images/kitchen.svg" alt="Cocina industrial" class="info-image"></v-img>
       </v-col>
     </v-row>
   </v-container>
