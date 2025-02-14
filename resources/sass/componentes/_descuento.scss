@@ -1,21 +1,34 @@
 @use '../globales/variables' as v;
-/* Sección de Descuento */
+
 .discount-section {
     position: relative;
-    text-align: center;
     width: 100%;
-    height: 350px; /* Ajusta según sea necesario */
+    height: 100%; // Ajusta según sea necesario
     display: flex;
     align-items: center;
     justify-content: center;
     color: v.$white;
+    background-image: url('/images/sombra.svg'); // Ruta de la imagen de fondo
+    background-size: cover;
+    background-position: center;
+
+    /* Capa de oscurecimiento */
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); // Ajusta la opacidad
+        z-index: 1;
+    }
 }
 
 /* Ajustes para los textos pequeños */
-.discount-text-left {
+.discount-text-left,
+.discount-text-right {
     position: absolute;
-    top: 30%;
-    left: 17%;
     color: v.$white;
     font-size: 1rem;
     max-width: 250px;
@@ -23,22 +36,20 @@
     text-align: left;
 }
 
-.discount-text-right {
-    position: absolute;
-    top: 85%;
-    right: 12%;
-    color: v.$white;
-    font-size: 1rem;
-    max-width: 240px;
-    z-index: 3;
-    text-align: left;
+.discount-text-left {
+    top: 30%;
+    left: 17%;
 }
 
+.discount-text-right {
+    top: 85%;
+    right: 12%;
+}
 
 /* Contenedor del texto */
 .discount-text {
     position: absolute;
-    z-index: 3; /* Se coloca encima de la sombra */
+    z-index: 3;
     color: v.$white;
     text-align: center;
     max-width: 600px;
@@ -48,11 +59,11 @@
         font-weight: bold;
     }
 
-    .bold{
+    .bold {
         font-size: 4rem;
         font-weight: bold;
-        color: transparent; /* Hace que el relleno sea transparente*/
-        -webkit-text-stroke: 2px v.$white; /* Define el borde */
+        color: transparent;
+        -webkit-text-stroke: 2px v.$white;
     }
 
     p {
@@ -61,10 +72,18 @@
 }
 
 
-/* Sombra azul */
-.sombra-image {
-    width: 100%;
+.descuento-contenedor{
+    height: 550px !important;
+}
+
+
+.camino-descuento{
     position: absolute;
-    z-index: 1; /* En el fondo */
-    scale: .8;
+    top: 60%;
+    left: 75%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-size: 2rem;
+    font-weight: bold;
+    height: 610px ;
 }

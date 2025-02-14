@@ -19,9 +19,6 @@ $desktopXXL: 1400px;
     align-items: flex-start;
     justify-content: center;
     height: 100% !important;
-    @media (max-width: $desktopM){
-
-    }
 }
 
 .text-service{
@@ -117,12 +114,21 @@ $desktopXXL: 1400px;
     flex-direction: column;
     gap: 2rem;
     position: absolute;
-    top:5.5vh;
-    @media (max-width: $desktopL){
-        gap: 1rem;
-        padding-top: 4rem;
-    }
+    top:1.5vh;
     @include m.desktop {
         position: relative;
+        top: 1vh;
+    }
+}
+
+.text-service-desktop {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem !important;
+    z-index: 2;
+    @media (max-width: $desktop) {
+        display: none !important;
     }
 }

@@ -22,9 +22,7 @@
   }
   .service-details {
     text-align: left !important;
-  }
-  .service-details b {
-    color: #52a8ff; /* Azul brillante para destacar */
+    z-index: 2;
   }
 
 .service-image-container {
