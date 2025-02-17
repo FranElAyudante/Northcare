@@ -23,161 +23,76 @@
       </div>
 
       <v-card class="contact-form-card">
-        <v-stepper v-model="step" class="custom-stepper" next-text="Siguiente paso" prev-text="Atras" alt-labels editable :items="['¿Qué tipo de negocio/empresa eres?', 'Tipo de servicio', 'Datos personales']">
+        <v-stepper v-model="step" class="custom-stepper" hide-actions alt-labels
+            :items="['¿Qué tipo de negocio/empresa eres?', 'Tipo de servicio', 'Datos personales']">
 
-
+          <!-- Paso 1: Tipo de negocio -->
           <template v-slot:item.1>
-            <v-card class="title-card-contact" title="¿Qué tipo de negocio/empresa eres?" flat>
-              <v-container>
-                <v-row>
-                  <v-col cols="12">
-                    <v-label class="font-weight-bold">Selecciona tu tipo de empresa</v-label>
-                  </v-col>
-                </v-row>
-
-                <v-row>
-                  <v-col cols="4">
-                    <v-radio v-model="businessType" label="Restauración" value="restauracion" color="red" class="custom-radio"></v-radio>
-                  </v-col>
-                  <v-col cols="4">
-                    <v-radio v-model="businessType" label="Hostelería" value="hosteleria"></v-radio>
-                  </v-col>
-                  <v-col cols="4">
-                    <v-radio v-model="businessType" label="Alimentación" value="alimentacion"></v-radio>
-                  </v-col>
-                </v-row>
-
-                <v-row>
-                  <v-col cols="4">
-                    <v-radio v-model="businessType" label="Comercio (minorista)" value="comercio"></v-radio>
-                  </v-col>
-                  <v-col cols="4">
-                    <v-radio v-model="businessType" label="Grandes superficies" value="superficies"></v-radio>
-                  </v-col>
-                  <v-col cols="4">
-                    <v-radio v-model="businessType" label="Cadenas de tiendas" value="cadenas"></v-radio>
-                  </v-col>
-                </v-row>
-
-                <v-divider class="my-4"></v-divider>
-
-                <v-row>
-                  <v-col cols="12">
-                    <v-label class="font-weight-bold">Urgencia</v-label>
-                  </v-col>
-                </v-row>
-
-                <v-row>
-                  <v-col cols="4">
-                    <v-radio v-model="urgency" label="Sin prisa" value="sin-prisa"></v-radio>
-                  </v-col>
-                  <v-col cols="4">
-                    <v-radio v-model="urgency" label="Un poco de prisa" value="poco-prisa"></v-radio>
-                  </v-col>
-                  <v-col cols="4">
-                    <v-radio v-model="urgency" label="Inmediatamente" value="inmediatamente"></v-radio>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card>
+            <business-type-form @update-business-type="updateBusinessType" @update-urgency="updateUrgency" />
           </template>
 
+          <!-- Paso 2: Tipo de servicio -->
           <template v-slot:item.2>
-            <v-card class="title-card-contact" title="¿Cuál es el servicio que necesitas?" flat>
-              <v-container>
-                <v-row>
-                  <v-col cols="6">
-                    <v-radio v-model="serviceType" label="Mantenimiento preventivo" value="mantenimiento"></v-radio>
-                  </v-col>
-                  <v-col cols="6">
-                    <v-radio v-model="serviceType" label="Avería / Reparación" value="reparacion"></v-radio>
-                  </v-col>
-                </v-row>
-                <v-row>
-                  <v-col cols="6">
-                    <v-radio v-model="serviceType" label="Montaje / Instalación" value="montaje"></v-radio>
-                  </v-col>
-                  <v-col cols="6">
-                    <v-radio v-model="serviceType" label="Atención de urgencias" value="urgencias"></v-radio>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card>
+            <service-type-form @update-service-type="updateServiceType" />
           </template>
 
+          <!-- Paso 3: Datos personales -->
           <template v-slot:item.3>
-            <v-card class="title-card-contact" title="Datos personales" flat>
-              <v-container>
-                <v-row>
-                  <v-col cols="12">
-                    <v-text-field label="Empresa" v-model="form.company"></v-text-field>
-                  </v-col>
-                  <v-col cols="12">
-                    <v-text-field label="Nombre" v-model="form.name"></v-text-field>
-                  </v-col>
-                </v-row>
-
-                <v-row>
-                  <v-col cols="12">
-                    <v-text-field label="Email" v-model="form.email"></v-text-field>
-                  </v-col>
-                  <v-col cols="12">
-                    <v-text-field label="Teléfono" v-model="form.phone"></v-text-field>
-                  </v-col>
-                </v-row>
-
-                <v-row>
-                  <v-col cols="6">
-                    <v-select label="Provincia" :items="provinces" v-model="form.province"></v-select>
-                  </v-col>
-                  <v-col cols="6">
-                    <v-select label="Localidad" :items="localities" v-model="form.locality"></v-select>
-                  </v-col>
-                </v-row>
-
-                <v-row>
-                  <v-col cols="12">
-                    <v-checkbox v-model="form.privacy" label="He leído y aceptado la Política de Privacidad."></v-checkbox>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card>
-          </template>
-
-
-          <template>
-            <!-- Botones de navegación -->
-                <v-stepper-actions>
-                <!-- Botón "Anterior" solo visible si el paso es mayor que 1 -->
-                <v-btn variant="tonal" @click="step--" :disabled="step === 1" v-if="step > 1">Anterior</v-btn>
-
-                <!-- Botón "Siguiente" solo visible si el paso es menor que 3 -->
-                <v-btn variant="flat" color="primary" @click="step++" v-if="step < 3">Siguiente</v-btn>
-
-                <!-- Botón "Finalizar" en el paso 3 cambia a "Enviar" -->
-                <v-btn variant="flat" color="success" @click="submitForm" v-else>{{ step === 3 ? 'Enviar' : 'Finalizar' }}</v-btn>
-                </v-stepper-actions>
+            <personal-data-form :form="form" :provincias="provincias" :municipios="filteredMunicipios" @submit-form="submitForm" />
           </template>
 
         </v-stepper>
+
+        <!-- Botones de acción personalizados -->
+        <v-row justify="space-between">
+          <v-col v-if="step > 1">
+            <!-- Botón 'Anterior' solo visible en pasos 2 y 3 -->
+            <v-btn @click="step--" :disabled="step === 1">Anterior</v-btn>
+          </v-col>
+
+          <v-col class="text-right">
+            <!-- Botón 'Siguiente' en paso 1 y 'Siguiente' en paso 2 -->
+            <v-btn v-if="step < 3" @click="nextStep">
+              Siguiente
+            </v-btn>
+
+            <!-- Botón 'Enviar' en paso 3 -->
+            <v-btn v-if="step === 3" @click="submitForm">
+              Enviar
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-card>
 
       <div class="imgNorte-conteiner">
         <img src="/images/CuidandoNorte.svg" alt="CuidandoNorte" class="img-norte" />
       </div>
-
     </v-container>
   </template>
 
   <script>
+  import { useForm } from '@inertiajs/vue3';
+  import provinciaData from "@/json/provincias.json";
+  import municipiosData from "@/json/municipios.json";
+  import BusinessTypeForm from './BusinessTypeForm.vue';
+  import ServiceTypeForm from './ServiceTypeForm.vue';
+  import PersonalDataForm from './PersonalDataForm.vue';
+
   export default {
+    components: {
+      BusinessTypeForm,
+      ServiceTypeForm,
+      PersonalDataForm,
+    },
     data() {
       return {
-        step: 1, // Añadido para controlar los pasos
+        step: 1,
         businessType: '',
         urgency: '',
         serviceType: '',
-        form: {
+        provincias: provinciaData,
+        municipios: municipiosData,
+        form: useForm({
           company: '',
           name: '',
           email: '',
@@ -185,14 +100,51 @@
           province: '',
           locality: '',
           privacy: false,
-        },
-        provinces: ['Provincia 1', 'Provincia 2', 'Provincia 3'],
-        localities: ['Localidad 1', 'Localidad 2', 'Localidad 3'],
+        }),
       };
     },
+    computed: {
+      filteredMunicipios() {
+        if (!this.form.province) return [];
+        const selectedProvinciaPrefix = this.form.province.substring(0, 2);
+        return this.municipios.filter((municipio) =>
+          municipio.id.startsWith(selectedProvinciaPrefix)
+        );
+      },
+    },
     methods: {
+      updateBusinessType(businessType) {
+        this.businessType = businessType;
+      },
+      updateUrgency(urgency) {
+        this.urgency = urgency;
+      },
+      updateServiceType(serviceType) {
+        this.serviceType = serviceType;
+      },
+      nextStep() {
+        if (this.step < 3) this.step++;
+      },
       submitForm() {
-        console.log('Formulario enviado', this.form);
+        this.form.post('/contacto', {
+          tipo_empresa: this.businessType,
+          urgencia: this.urgency,
+          servicio: this.serviceType,
+          empresa: this.form.company.value,
+          nombre: this.form.name.value,
+          email: this.form.email,
+          telefono: this.form.phone,
+          provincia: this.form.province,
+          localidad: this.form.locality,
+        })
+        .then(response => {
+          this.step = 4;
+          alert('Formulario enviado con éxito.');
+        })
+        .catch(error => {
+          console.error('Error al enviar el formulario', error);
+          alert('Hubo un problema al enviar el formulario. Intenta de nuevo más tarde.');
+        });
       },
     },
   };
