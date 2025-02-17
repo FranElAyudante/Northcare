@@ -32,12 +32,6 @@
           </v-col>
         </v-row>
 
-        <v-row>
-          <v-col cols="12">
-            <v-checkbox v-model="form.privacy" label="He leído y aceptado la Política de Privacidad." required></v-checkbox>
-          </v-col>
-        </v-row>
-
         <!-- Botón de enviar -->
         <v-row>
           <v-col cols="12" class="text-right">
@@ -49,72 +43,59 @@
   </template>
 
   <script>
-  import { useForm } from '@inertiajs/vue3';
+  import { useForm } from "@inertiajs/vue3";
   import provinciaData from "@/json/provincias.json";
   import municipiosData from "@/json/municipios.json";
 
   export default {
-    data() {
-      return {
-        provincias: provinciaData,
-        municipios: municipiosData,
-      };
-    },
-    setup() {
-      const form = useForm({
-        company: '',
-        name: '',
-        email: '',
-        phone: '',
-        province: '',
-        locality: '',
-        privacy: false,
-      });
-
-      // Función para enviar el formulario
-      const submitForm = async () => {
-        if (!form.privacy) {
-          alert('Debes aceptar la política de privacidad.');
-          return;
-        }
-
-        // Verifica si los datos están correctos
-        console.log(form);
-
-        try {
-          const response = await form.post('/contacto', {
-            tipo_empresa: this.businessType,
-            urgencia: this.urgency,
-            servicio: this.serviceType,
-            empresa: form.company,
-            nombre: form.name,
-            email: form.email,
-            telefono: form.phone,
-            provincia: form.province,
-            localidad: form.locality,
-          });
-
-          // Si todo es exitoso
-          alert('Formulario enviado con éxito.');
-        } catch (error) {
-          // Si hay un error
-          console.error('Error al enviar el formulario:', error);
-          alert('Hubo un problema al enviar el formulario. Intenta de nuevo más tarde.');
-        }
-      };
-
-      return {
-        form,
-        submitForm
-      };
+    props: {
+      modelValue: Object,
     },
     computed: {
+      form: {
+        get() {
+          return this.modelValue;
+        },
+        set(value) {
+          this.$emit("update:modelValue", value);
+        },
+      },
       filteredMunicipios() {
         if (!this.form.province) return [];
         const selectedProvinciaPrefix = this.form.province.substring(0, 2);
         return this.municipios.filter((municipio) =>
           municipio.id.startsWith(selectedProvinciaPrefix)
         );
+      },
+      provincias() {
+            return this.provincias || []; // Si provincias es undefined, regresa un array vacío
+      }
+    },
+    methods: {
+      async submitForm() {
+        if (!this.form.privacy) {
+          alert("Debes aceptar la política de privacidad.");
+          return;
+        }
+
+        try {
+          await this.form.post("/contacto", {
+            tipo_empresa: this.form.businessType,
+            urgencia: this.form.urgency,
+            servicio: this.form.serviceType,
+            empresa: this.form.company,
+            nombre: this.form.name,
+            email: this.form.email,
+            telefono: this.form.phone,
+            provincia: this.form.province,
+            localidad: this.form.locality,
+          });
+
+          alert("Formulario enviado con éxito.");
+        } catch (error) {
+          console.error("Error al enviar el formulario:", error);
+          alert("Hubo un problema al enviar el formulario. Intenta de nuevo más tarde.");
+        }
       },
     },
   };

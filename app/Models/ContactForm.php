@@ -21,5 +21,6 @@ class ContactForm extends Model
         'telefono',
         'provincia',
         'localidad',
+        'privacidad',
     ];
 }

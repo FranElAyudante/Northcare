@@ -1,5 +1,5 @@
 <template>
-    <v-card class="title-card-contact" title="¿Qué tipo de negocio/empresa eres?" flat>
+    <v-card flat>
       <v-container>
         <v-row>
           <v-col cols="12">
@@ -7,71 +7,75 @@
           </v-col>
         </v-row>
 
-        <v-row>
-          <v-col cols="4">
-            <v-radio v-model="localBusinessType" label="Restauración" value="restauracion" color="red" class="custom-radio" @change="updateFormData" />
-          </v-col>
-          <v-col cols="4">
-            <v-radio v-model="localBusinessType" label="Hostelería" value="hosteleria" @change="updateFormData" />
-          </v-col>
-          <v-col cols="4">
-            <v-radio v-model="localBusinessType" label="Alimentación" value="alimentacion" @change="updateFormData" />
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-col cols="4">
-            <v-radio v-model="localBusinessType" label="Comercio (minorista)" value="comercio" @change="updateFormData" />
-          </v-col>
-          <v-col cols="4">
-            <v-radio v-model="localBusinessType" label="Grandes superficies" value="superficies" @change="updateFormData" />
-          </v-col>
-          <v-col cols="4">
-            <v-radio v-model="localBusinessType" label="Cadenas de tiendas" value="cadenas" @change="updateFormData" />
-          </v-col>
-        </v-row>
+        <v-radio-group v-model="localBusinessType" @change="$emit('update:businessType', localBusinessType)">
+          <v-row>
+            <v-col cols="4">
+              <v-radio label="Restauración" value="restauracion" />
+            </v-col>
+            <v-col cols="4">
+              <v-radio label="Hostelería" value="hosteleria" />
+            </v-col>
+            <v-col cols="4">
+              <v-radio label="Alimentación" value="alimentacion" />
+            </v-col>
+            <v-col cols="4">
+              <v-radio label="Comercio (minorista)" value="comercio" />
+            </v-col>
+            <v-col cols="4">
+              <v-radio label="Grandes superficies" value="superficies" />
+            </v-col>
+            <v-col cols="4">
+              <v-radio label="Cadenas de tiendas" value="cadenas" />
+            </v-col>
+          </v-row>
+        </v-radio-group>
 
         <v-divider class="my-4"></v-divider>
 
-        <v-row>
-          <v-col cols="12">
-            <v-label class="font-weight-bold">Urgencia</v-label>
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-col cols="4">
-            <v-radio v-model="localUrgency" label="Sin prisa" value="sin-prisa" @change="updateFormData" />
-          </v-col>
-          <v-col cols="4">
-            <v-radio v-model="localUrgency" label="Un poco de prisa" value="poco-prisa" @change="updateFormData" />
-          </v-col>
-          <v-col cols="4">
-            <v-radio v-model="localUrgency" label="Inmediatamente" value="inmediatamente" @change="updateFormData" />
-          </v-col>
-        </v-row>
+        <v-label class="font-weight-bold">Urgencia</v-label>
+        <v-radio-group v-model="localUrgency" @change="$emit('update:urgency', localUrgency)">
+          <v-row>
+            <v-col cols="4">
+              <v-radio label="Sin prisa" value="sin-prisa" />
+            </v-col>
+            <v-col cols="4">
+              <v-radio label="Un poco de prisa" value="poco-prisa" />
+            </v-col>
+            <v-col cols="4">
+              <v-radio label="Inmediatamente" value="inmediatamente" />
+            </v-col>
+          </v-row>
+        </v-radio-group>
       </v-container>
     </v-card>
   </template>
 
   <script>
   export default {
+    props: {
+      businessType: {
+        type: String,
+        default: ""
+      },
+      urgency: {
+        type: String,
+        default: ""
+      }
+    },
     data() {
       return {
-        localBusinessType: '',
-        localUrgency: ''
+        localBusinessType: this.businessType,
+        localUrgency: this.urgency
       };
     },
-    methods: {
-      updateFormData() {
-        // Emitir solo si hay cambios
-        if (this.localBusinessType) {
-          this.$emit('update-business-type', this.localBusinessType);
-        }
-        if (this.localUrgency) {
-          this.$emit('update-urgency', this.localUrgency);
-        }
+    watch: {
+      businessType(newVal) {
+        this.localBusinessType = newVal;
+      },
+      urgency(newVal) {
+        this.localUrgency = newVal;
       }
-    }
+    },
+    emits: ["update:businessType", "update:urgency"]
   };
   </script>

@@ -27,6 +27,7 @@ class ContactController extends Controller
             'telefono' => 'required|string|max:20',
             'provincia' => 'required|string|max:255',
             'localidad' => 'required|string|max:255',
+            'privacidad' => 'required|boolean',
         ]);
 
         // Log de los datos validados para asegurarse de que son correctos
