@@ -1,6 +1,8 @@
+@use '../globales/variables' as v;
+
 .custom-stepper {
     background: transparent !important; /* Fondo transparente */
-    color: white !important;
+    color: v.$white !important;
     padding: 20px;
     border-radius: 12px;
   }
@@ -12,6 +14,16 @@
 .img-norte{
     max-width: 900px !important;
     width: 100%;
+}
+
+.mdi-checkbox-blank-outline::before {
+    content: none !important;
+}
+
+.v-avatar.v-theme--light.v-avatar--density-default.v-avatar--variant-flat.v-stepper-item__avatar{
+    width: 58px !important;
+    height: 58px !important;
+    font-size: x-large;
 }
 
 .contact-form-card{
@@ -48,6 +60,7 @@
 
   .conteiner-contact-info{
     padding: 10px !important;
+    padding-bottom: 40px !important;
   }
 
   .v-selection-control__input {
@@ -63,4 +76,59 @@
     margin-inline-end: 0;
     background-color: white !important;
     color: black !important;
+}
+
+
+.btn-form{
+    border: 1px solid white !important;
+    border-radius: 50px !important;
+    text-transform: none !important;
+}
+
+.btn-container-form{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px ;
+}
+
+.btn-container-step2{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px ;
+}
+
+.btn-form-submit{
+  background-color: #487EB0 !important;
+  padding: 15px 30px !important;
+  border: unset !important;
+  border-radius: 50px !important;
+  color: v.$white !important;
+  filter: blur(5px) !important; /* Aplica el desenfoque */
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease !important; /* Transición suave */
+
+    .btn:hover {
+        background-color: rgba(72, 126, 176, 0.9) !important; /* Fondo más opaco al pasar el mouse */
+    }
+}
+
+.txt-enviar{
+    position: absolute;
+    left: 0;
+    /* right: 0; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+
+.title-contacto{
+    max-width:350px;
+    .text-contacto-title{
+        color: v.$white !important;
+    }
+}
+
+.v-stepper--alt-labels .v-stepper-header .v-divider {
+    align-self: flex-start !important;
+    margin: 51px -59px 0 !important;
 }

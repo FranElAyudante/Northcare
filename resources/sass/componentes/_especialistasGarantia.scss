@@ -108,4 +108,21 @@
 
 .text-garantia{
     text-align: left;
+    font-size: 1 rem;
+    .title-beneficios-text {
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+}
+
+.title-garantia{
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+.subtitle-garantia{
+    font-size: 2rem !important;
+}
+
+.container-garantia{
+    padding-bottom: 75px !important;
 }

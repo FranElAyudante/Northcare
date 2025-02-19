@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ContactForm;
 use Illuminate\Support\Facades\Log; // Importa la clase Log
+use Inertia\Inertia;
 
 class ContactController extends Controller
 {
@@ -39,9 +40,6 @@ class ContactController extends Controller
         // Log de la creación exitosa
         Log::info('Formulario de contacto guardado con éxito:', ['contact' => $contact]);
 
-        return response()->json([
-            'message' => 'Formulario enviado con éxito',
-            'contact' => $contact
-        ], 201);
+        return redirect()->back()->with('success', 'Formulario enviado correctamente');
     }
 }

@@ -7,13 +7,17 @@
   }
 
   .title-tarifa {
-    margin-bottom: 20px;
+    margin-bottom: 80px;
+    font-size: 1.7rem;
+    height: 200px;
+    width: 600px;
   }
   .tarifas-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
     margin-bottom: 30px;
+    height: 650px !important;
   }
   @media (min-width: 768px) {
     .tarifas-grid {
@@ -37,19 +41,10 @@
   .tarifa-title {
     font-size: 20px;
     font-weight: bold;
-    color: white;
-    padding: 0px !important;
-  }
-
-  .tarifa-title {
-    font-size: 20px;
-    font-weight: bold;
     background-color: transparent !important; /* Fondo transparente */
     border: none !important; /* Asegúrate de que no tenga bordes que interfieran */
-  }
-
-  .title-tarifa {
-    background-color: transparent !important; /* Si es necesario, también haz transparente el fondo del contenedor */
+    color: white;
+    padding: 0px !important;
   }
 
   .ul-tarifa {
@@ -61,6 +56,8 @@
     align-items: center;
     gap: 10px;
     margin-bottom: 8px;
+    padding: 4px;
+    font-size: 1rem;
   }
   .check-icon {
     font-size: 20px;
@@ -71,7 +68,7 @@
   }
   .tarifa-info {
     font-size: 12px;
-    color: #aaa;
+    color: v.$white;
     margin-bottom: 15px;
   }
   .btn-tarifas {

@@ -1,6 +1,6 @@
 <template>
     <div class="clientes-confianza">
-      <h2>ELLOS YA CONFÍAN EN NOSOTROS:</h2>
+      <div class="text-clientes"><h2><b>ELLOS YA CONFÍAN EN NOSOTROS:</b></h2></div>
       <div class="clientes-grid">
         <img class="img-clientes" src="Images/CLIENTES.svg"/>
       </div>
