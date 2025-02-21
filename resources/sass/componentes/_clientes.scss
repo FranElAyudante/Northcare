@@ -6,8 +6,10 @@
 }
 
 .text-clientes{
-    font-size: 1.5rem;
-    width: 400px;
+    max-width: 800px;
+    b{
+        font-size:48px !important;
+    }
 }
 
 .clientes-grid {
@@ -19,5 +21,5 @@
 .img-clientes{
     width: 100%;
     object-fit: cover;
-    max-width: 800px;
+    max-width: 700px;
 }

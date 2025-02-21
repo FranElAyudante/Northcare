@@ -26,6 +26,15 @@ ul{
     margin: 0 auto;
 }
 
+.btn-header {
+    background-color: transparent !important; /* Fondo transparente */
+    color: white !important; /* Texto blanco */
+    border: none !important; /* Sin bordes */
+    box-shadow: none !important; /* Sin sombras */
+    text-transform: none; /* Evita que el texto se convierta en mayúsculas */
+  }
+
+
 .btn-public {
     padding: 15px 30px !important;
     text-decoration: none;
@@ -61,3 +70,15 @@ ul{
         font-size: 2.5rem;
     }
 }
+
+.v-row{
+    margin: 0 !important;
+    @include m.tablet {
+        margin: -12px !important;
+
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+  }

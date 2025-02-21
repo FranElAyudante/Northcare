@@ -15,9 +15,9 @@
                 </div>
 
                 <div class="discount-text">
-                    <h2>50%</h2>
+                   <v-img src="/images/descuento50.svg" alt="Cocina industrial" class="descuento-image"></v-img>
                     <p>de descuento en los primeros</p>
-                    <h2 class="bold">3 meses</h2>
+                   <v-img src="/images/meses.svg" alt="Cocina industrial" class="mes-image"></v-img>
                     <p>en locales de nueva apertura</p>
                 </div>
 

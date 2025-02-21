@@ -1,14 +1,14 @@
 <template>
     <v-container>
         <!-- Sección "Conoce un poco más sobre Northcare" -->
-        <v-row class="bg-grey-darken-3 pa-6 rounded-lg">
+        <v-row class="bg-grey-darken-3 rounded-lg container-nosotros-general">
 
             <v-col cols="12">
                 <div class="container-equipo-text">
                     <h2 class="title-nosotros-beneficios">
                         <b>Conoce un poco más sobre Northcare:</b> Cuidamos de tu negocio todos los días del año.
                     </h2>
-                    <p class="text-white">
+                    <p class="subtitle-nosotros-beneficios">
                         Northcare nace con el propósito de ser el aliado de confianza para empresas, negocios y locales
                         de
                         hostelería y restauración.
@@ -48,11 +48,11 @@
 
             <!-- Sección de Preguntas Frecuentes -->
 
-            <div class="container-text">
+            <div class="container-text-preguntas">
                 <v-row class="mt-10">
                     <v-col cols="12">
-                        <h2 class="title-nosotros">PREGUNTAS FRECUENTES:</h2>
-                        <p class="subtitle-nosotros">La respuesta a todas (o casi todas a todas tus dudas).</p>
+                        <h2 class="title-nosotros"><b>PREGUNTAS FRECUENTES:</b></h2>
+                        <h3 class="subtitle-nosotros">La respuesta a todas (o casi todas  tus dudas).</h3>
                     </v-col>
                 </v-row>
             </div>
@@ -61,8 +61,8 @@
                 <v-col cols="12">
                     <v-expansion-panels class="expansion-preguntas" :elevation="0">
                         <v-expansion-panel v-for="(pregunta, index) in preguntas" :key="index">
-                            <v-expansion-panel-title>{{ pregunta.pregunta }}</v-expansion-panel-title>
-                            <v-expansion-panel-text>{{ pregunta.respuesta }}</v-expansion-panel-text>
+                            <v-expansion-panel-title class="title-preguntas">{{ pregunta.pregunta }}</v-expansion-panel-title>
+                            <v-expansion-panel-text class="text-preguntas">{{ pregunta.respuesta }}</v-expansion-panel-text>
                         </v-expansion-panel>
                     </v-expansion-panels>
                 </v-col>

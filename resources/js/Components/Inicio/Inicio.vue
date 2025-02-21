@@ -13,13 +13,13 @@
                     </div>
 
                     <div class="text-service-desktop">
-                        <h1>CUANDO ALGO FALLA, NOSOTROS RESPONDEMOS</h1>
-                        <p class="subtitle">
+                        <h1 class="title-home">CUANDO ALGO FALLA, NOSOTROS RESPONDEMOS</h1>
+                        <p class="subtitle-home">
                             Especialistas en <strong>mantenimiento</strong> y <strong>urgencias</strong>
                             para empresas del sector de la hostelería y la restauración.
                         </p>
                         <div class="btn-solicitud">
-                            <NavLink href="#" variant="outlined" rounded="xl" class="btn-public">
+                            <NavLink href="#contacto" variant="outlined" rounded="xl" class="btn-public">
                                 Solicitar Presupuesto
                             </NavLink>
                         </div>

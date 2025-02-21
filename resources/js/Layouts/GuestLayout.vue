@@ -1,20 +1,19 @@
 <template>
     <div class="layout-conteiner">
         <Header/>
-        <Inicio/>
-        <Descuento/>
-        <Servicios/>
-        <Clientes/>
-        <Tarifas/>
-        <EspecialistasGarantia/>
-        <Nosotros/>
-        <Contacto/>
-        <main class="main-conteiner">
-            <slot></slot>
-        </main>
+        <Inicio id="inicio"/>
+        <Descuento id="descuento"/>
+        <Servicios id="servicios"/>
+        <Clientes id="clientes"/>
+        <Tarifas id="tarifas"/>
+        <EspecialistasGarantia id="garantia"/>
+        <Nosotros id="nosotros"/>
+        <Contacto id="contacto"/>
         <Footer/>
     </div>
 </template>
+
+
 
 <script setup>
 

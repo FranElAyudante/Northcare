@@ -12,15 +12,23 @@
                     </div>
                 </v-col>
                 <v-col cols="12" md="6" class="text-right">
-                    <div class="mb-3">
-                        <a href="#" class="text-white text-decoration-none mx-2">Facebook</a>
-                        <a href="#" class="text-white text-decoration-none mx-2">Instagram</a>
-                        <a href="#" class="text-white text-decoration-none mx-2">LinkedIn</a>
+                    <!-- Redes Sociales -->
+                    <div class="mb-3 social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">LinkedIn</a>
                     </div>
-                    <p class="text-white">info@northcare.es</p>
-                    <p class="text-white">644 06 55 44</p>
-                    <p class="text-white">603 08 17 40</p>
-                    <p class="text-white">C/ Aurelio Espinosa, 11-4C Santander, Cantabria, España</p>
+
+                    <!-- Información de Contacto -->
+                    <div>
+                        <p class="text-white">info@northcare.es</p>
+                        <p class="text-white">644 06 55 44</p>
+                        <p class="text-white">603 08 17 40</p>
+                        <p class="text-white address">
+                            C/ Aurelio Espinosa, 11-4C <br />
+                            Santander, Cantabria, España
+                        </p>
+                    </div>
                 </v-col>
             </v-row>
         </div>
@@ -34,27 +42,32 @@
                         <v-container>
                             <v-radio-group v-model="form.tipo_empresa">
                                 <v-row>
-                                    <v-col cols="4">
+                                    <v-col cols="6" md="4">
                                         <v-radio label="Restauración" value="restauracion"
-                                            class="custom-radio"></v-radio>
+                                            class="custom-radio item-contain-radio"></v-radio>
                                     </v-col>
-                                    <v-col cols="4">
-                                        <v-radio label="Hostelería" value="hosteleria"></v-radio>
+                                    <v-col cols="6" md="4">
+                                        <v-radio class="item-contain-radio" label="Hostelería"
+                                            value="hosteleria"></v-radio>
                                     </v-col>
-                                    <v-col cols="4">
-                                        <v-radio label="Alimentación" value="alimentacion"></v-radio>
+                                    <v-col cols="6" md="4">
+                                        <v-radio class="item-contain-radio" label="Alimentación"
+                                            value="alimentacion"></v-radio>
                                     </v-col>
                                 </v-row>
 
-                                <v-row>
-                                    <v-col cols="4">
-                                        <v-radio label="Comercio (minorista)" value="comercio"></v-radio>
+                                <v-row class="section-radio-btn">
+                                    <v-col cols="6" md="4">
+                                        <v-radio class="item-contain-radio" label="Comercio (minorista)"
+                                            value="comercio"></v-radio>
                                     </v-col>
-                                    <v-col cols="4">
-                                        <v-radio label="Grandes superficies" value="superficies"></v-radio>
+                                    <v-col cols="6" md="4">
+                                        <v-radio class="item-contain-radio" label="Grandes superficies"
+                                            value="superficies"></v-radio>
                                     </v-col>
-                                    <v-col cols="4">
-                                        <v-radio label="Cadenas de tiendas" value="cadenas"></v-radio>
+                                    <v-col cols="6" md="4">
+                                        <v-radio class="item-contain-radio" label="Cadenas de tiendas"
+                                            value="cadenas"></v-radio>
                                     </v-col>
                                 </v-row>
                             </v-radio-group>
@@ -64,27 +77,33 @@
                         <v-container>
                             <v-radio-group v-model="form.urgencia">
                                 <v-row>
-                                    <v-col cols="4">
-                                        <v-radio label="Sin prisa" value="sin-prisa"></v-radio>
+                                    <v-col cols="6" md="4">
+                                        <v-radio class="item-contain-radio" label="Sin prisa"
+                                            value="sin-prisa"></v-radio>
                                     </v-col>
-                                    <v-col cols="4">
-                                        <v-radio label="Un poco de prisa" value="poco-prisa"></v-radio>
+                                    <v-col cols="6" md="4">
+                                        <v-radio class="item-contain-radio" label="Un poco de prisa"
+                                            value="poco-prisa"></v-radio>
                                     </v-col>
-                                    <v-col cols="4">
-                                        <v-radio label="Inmediatamente" value="inmediatamente"></v-radio>
+                                    <v-col cols="6" md="4">
+                                        <v-radio class="item-contain-radio" label="Inmediatamente"
+                                            value="inmediatamente"></v-radio>
                                     </v-col>
                                 </v-row>
                             </v-radio-group>
-                            <div class="btn-container-form">
-                                <v-btn height="72" min-width="164" variant="text" class="btn-form"
-                                    @click="step++">Siguiente</v-btn>
+                            <div class="btn-container-form-siguiente">
+                                <v-btn :height="$vuetify.display.mdAndUp ? 79 : 50"
+                                    :min-width="$vuetify.display.mdAndUp ? 224 : '100%'" variant="text"
+                                    class="btn-form-siguiente" @click="step++">
+                                    Siguiente
+                                </v-btn>
                             </div>
                         </v-container>
                     </v-card>
                 </template>
 
                 <template v-slot:item.2>
-                    <v-card class="title-card-contact" title="¿Cuál es el servicio que necesitas?" flat>
+                    <v-card class="title-card-contact-servicio" title="¿Cuál es el servicio que necesitas?" flat>
                         <v-container>
 
                             <v-radio-group v-model="form.servicio">
@@ -94,10 +113,16 @@
                                 <v-radio label="Atención de urgencias" value="urgencias"></v-radio>
                             </v-radio-group>
                             <div class="btn-container-step2">
-                                <v-btn height="72" min-width="164" variant="text" class="btn-form"
-                                    @click="step--">Atrás</v-btn>
-                                <v-btn height="72" min-width="164" variant="text" class="btn-form"
-                                    @click="step++">Siguiente</v-btn>
+                                <v-btn :height="$vuetify.display.mdAndUp ? 72 : 50"
+                                    :min-width="$vuetify.display.mdAndUp ? 164 : '30%'" variant="text" class="btn-form"
+                                    @click="step--">
+                                    Atrás
+                                </v-btn>
+                                <v-btn :height="$vuetify.display.mdAndUp ? 72 : 50"
+                                    :min-width="$vuetify.display.mdAndUp ? 164 : '30%'" variant="text" class="btn-form"
+                                    @click="step++">
+                                    Siguiente
+                                </v-btn>
                             </div>
                         </v-container>
                     </v-card>
@@ -148,12 +173,16 @@
                                 </v-col>
                             </v-row>
 
-                            <div class="btn-container-step2">
-                                <v-btn height="72" min-width="164" variant="text" class="btn-form"
-                                    @click="step--">Atrás</v-btn>
+                            <div class="btn-container-step3">
+                                <v-btn :height="$vuetify.display.mdAndUp ? 72 : 50"
+                                    :min-width="$vuetify.display.mdAndUp ? 164 : '30%'" variant="text" class="btn-form"
+                                    @click="step--">
+                                    Atrás
+                                </v-btn>
                                 <div class="btn-submit-form" style="position: relative;">
-                                    <v-btn height="72" min-width="164" variant="text" class="btn-form-submit"
-                                        :disabled="form.processing" @click="enviarFormulario"></v-btn>
+                                    <v-btn :height="$vuetify.display.mdAndUp ? 72 : 50" min-width="164" variant="text"
+                                        class="btn-form-submit" :disabled="form.processing" @click="enviarFormulario">
+                                    </v-btn>
                                     <span class="txt-enviar">Enviar</span>
                                 </div>
                             </div>
@@ -165,7 +194,7 @@
         </v-card>
 
         <div class="imgNorte-conteiner">
-            <img src="/images/CuidandoNorte.svg" alt="CuidandoNorte" class="img-norte" />
+            <img src="/images/CuidandoNorte.png" alt="CuidandoNorte" class="img-norte" />
         </div>
 
     </v-container>

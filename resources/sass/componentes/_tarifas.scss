@@ -1,4 +1,5 @@
 @use "../globales/variables" as v;
+@use "../globales/mixins" as m;
 
 .tarifas {
     margin: auto;
@@ -8,22 +9,31 @@
 
   .title-tarifa {
     margin-bottom: 80px;
-    font-size: 1.7rem;
     height: 200px;
-    width: 600px;
+    max-width: 700px;
+    line-height: normal;
+    b, h2{
+        font-size: 48px;
+    }
+    @media (max-width: 480px) {
+        max-width: 100%;
+        height: 130px;
+        font-size: 1rem;
+        margin: 0;
+    }
   }
   .tarifas-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
     margin-bottom: 30px;
-    height: 650px !important;
   }
   @media (min-width: 768px) {
     .tarifas-grid {
       grid-template-columns: repeat(3, 1fr);
     }
   }
+
   .tarifa-item {
     padding: 20px;
     border-radius: 20px;
@@ -33,9 +43,9 @@
   }
 
   .tarifa-content{
-    padding: 10px !important;
+    padding: 25px !important;
     margin-top: 10px !important;
-    border-radius: 20px !important;
+    border-radius: 40px !important;
   }
 
   .tarifa-title {
@@ -53,7 +63,7 @@
   }
   .ul-tarifa li {
     display: flex;
-    align-items: center;
+    align-items: start;
     gap: 10px;
     margin-bottom: 8px;
     padding: 4px;
@@ -63,8 +73,9 @@
     font-size: 20px;
   }
   .tarifa-footer {
-    margin-top: 30px;
-    text-align: center;
+    margin-top: 50px;
+    text-align: left;
+    padding-bottom: 200px;
   }
   .tarifa-info {
     font-size: 12px;
@@ -75,4 +86,6 @@
     color: white;
     border-color: white;
     width: 100%;
+    height: 59px !important;
+    margin-top: 30px !important;
   }

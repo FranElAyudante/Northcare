@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ContactForm;
 use Illuminate\Support\Facades\Log; // Importa la clase Log
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Contacto;
 use Inertia\Inertia;
 
 class ContactController extends Controller
@@ -36,6 +38,8 @@ class ContactController extends Controller
 
         // Crear el registro en la base de datos
         $contact = ContactForm::create($validatedData);
+        Mail::to(config('mail.from.address'))->send(new Contacto($contact));
+
 
         // Log de la creación exitosa
         Log::info('Formulario de contacto guardado con éxito:', ['contact' => $contact]);

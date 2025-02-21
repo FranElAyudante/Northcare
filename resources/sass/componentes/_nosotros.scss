@@ -14,6 +14,21 @@
     background-color: #4b4a4a;
 }
 
+.title-preguntas{
+    font-size: 22px !important;
+}
+.text-preguntas{
+    font-size: 15px !important;
+    font-weight: 300;
+}
+
+.container-nosotros-general{
+    padding-top: 90px;
+    padding-left: 50px;
+    padding-right: 25px;
+    padding-bottom: 60px;
+}
+
 .card-nosotros{
     text-align: center !important;
     color: white !important;
@@ -25,37 +40,97 @@
     }
 }
 
-.card-fotos{
+
+.card-fotos {
     padding: auto;
     color:white !important;
-}
-.title-nosotros{
-    font-size: 2.5rem;
-    font-weight: bold !important;
+    position: relative;
+    overflow: hidden;
+    background-color: #4b4a4a; /* Color de fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.title-nosotros-beneficios{
+.card-fotos .v-img {
+    position: relative;
+    z-index:1 ;
+}
+
+.card-fotos .v-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 92%; /* Ajusta el ancho del difuminado */
+    height: 100%;
+    background: linear-gradient(to left, rgba(66, 66, 66, 1) 15%, rgba(0, 0, 0, 0) 60%);
+}
+
+.title-nosotros{
     font-size: 2.5rem;
-    width: 600px;
-    padding-bottom: 20px;
+    line-height: 1;
+    @media (max-width: 480px) {
+        max-width: 100%;
+        font-size: 1.5rem;
+        padding: 0;
+    }
 }
 
 .subtitle-nosotros{
-    font-size: 2.5rem;
-    font-weight:normal;
-
+    font-size: 48px;
+    line-height: normal;
+    width: 600px;
+    @media (max-width: 480px) {
+        max-width: 100%;
+        font-size: 1rem;
+        padding-bottom: 20px !important;
+    }
 }
 
-.container-text{
+
+.title-nosotros-beneficios{
+    font-size: 48px;
+    width: 650px;
+    padding-bottom: 20px;
+    line-height: 1;
+    @media (max-width: 480px) {
+        max-width: 100%;
+        font-size: 1.7rem;
+        margin: 0;
+    }
+}
+
+.subtitle-nosotros-beneficios{
+    font-size: 18px;
+    color: v.$white;
+    width: 550px;
+    padding-bottom: 20px;
+    @media (max-width: 480px) {
+        max-width: 100%;
+        font-size: 0.8rem;
+    }
+}
+
+.container-text-preguntas{
     max-width: 550px;
     padding-left: 25px !important ;
+    .v-col.v-col-12{
+        padding-top: 70px !important;
+    }
 }
 
 .title-equipo{
-    font-size: 2.4rem;
-    max-width: 650px;
+    font-size: 48px;
+    line-height:normal;
+    max-width: 800px;
     padding-left: 20px;
-    padding-bottom: 60px;
+    padding-bottom: 90px;
+    @media (max-width: 480px) {
+        max-width: 100%;
+        font-size: 1.4rem;
+        padding: 0;
+    }
 }
 
 .container-equipo-text{

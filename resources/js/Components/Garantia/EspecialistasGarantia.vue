@@ -2,7 +2,7 @@
     <div class="especialistas-garantia">
         <section class="especialistas">
             <div class="conteiner-especialistas">
-                <img class="img-especialistas" src="images/ESPECIALISTAS.svg">
+                <img class="img-especialistas" src="images/ESPECIALISTAS.png">
             </div>
             <div class="conteiner-descripcion">
                 <p class="descripcion">
@@ -22,17 +22,25 @@
                 </v-row>
             </div>
 
-            <v-row>
-                <v-col cols="12" md="6" class="image-container">
-                    <v-img src="/images/kitchen.svg" alt="Cocina industrial" class="info-image"></v-img>
-                </v-col>
-                <v-col md="6" class="text-garantia">
-                    <div v-for="(item, index) in infoItems" :key="index" class="info-item">
-                        <h4 class=" title-beneficios-text">{{ item.title }}</h4>
-                        <p>{{ item.text }}</p>
-                    </div>
-                </v-col>
-            </v-row>
+            <div class="container-info-garantia">
+                <v-row>
+                    <v-col cols="12" md="7" class="image-container">
+                        <div class="contain-image-kitchen">
+                            <v-img src="/images/kitchen.svg" alt="Cocina industrial" class="info-image"></v-img>
+                        </div>
+                    </v-col>
+                    <v-col md="5" class="text-garantia">
+                        <div class="contain-texto-beneficios">
+                            <div v-for="(item, index) in infoItems" :key="index" class="info-item">
+                                <h4 class=" title-beneficios-text">{{ item.title }}</h4>
+                                <p>{{ item.text }}</p>
+                            </div>
+                        </div>
+                    </v-col>
+                </v-row>
+            </div>
+
+
         </v-container>
     </div>
 </template>

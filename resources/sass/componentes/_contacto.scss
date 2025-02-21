@@ -1,14 +1,23 @@
 @use '../globales/variables' as v;
+@use '../globales/mixins' as m;
 
 .custom-stepper {
     background: transparent !important; /* Fondo transparente */
     color: v.$white !important;
     padding: 20px;
     border-radius: 12px;
+    @media (max-width:480px) {
+        .v-stepper-item__title{
+            font-size: 0.55rem !important;
+            line-height:1.5 ;
+        }
+    }
   }
+
 .imgNorte-conteiner{
     display: flex;
     justify-content: center;
+    padding-bottom: 40px;
 }
 
 .img-norte{
@@ -24,13 +33,18 @@
     width: 58px !important;
     height: 58px !important;
     font-size: x-large;
+    @media (max-width:480px) {
+        width: 30px !important;
+        height: 28px !important;
+        font-size: small;
+    }
 }
 
 .contact-form-card{
-    border: 20px solid !important;
     border-color: white !important;
-    border-width: 3px !important;
-    border-radius: 40px !important;
+    border-width: 1px !important;
+    border-radius: 60px !important;
+    margin-top: 45px !important;
 }
 
 .v-card--variant-elevated, .v-card--variant-flat {
@@ -48,6 +62,14 @@
 
   .title-card-contact{
     color: white !important;
+
+  }
+
+  .title-card-contact-servicio{
+    color: white !important;
+    @media (max-width:480px) {
+        font-size: 2rem !important;
+    }
   }
 
   .custom-radio .v-label {
@@ -60,6 +82,7 @@
 
   .conteiner-contact-info{
     padding: 10px !important;
+    padding-top: 40px !important;
     padding-bottom: 40px !important;
   }
 
@@ -78,12 +101,52 @@
     color: black !important;
 }
 
+/* Subrayado personalizado para redes sociales */
+.social-link {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    margin-left:10px;
+  }
+
+  .social-link::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+  }
+
+  /* Dirección en dos líneas */
+  .address {
+    white-space: pre-line; /* Permite los saltos de línea */
+  }
+
 
 .btn-form{
     border: 1px solid white !important;
     border-radius: 50px !important;
     text-transform: none !important;
+    height: 72;
+    min-width: 164;
+
 }
+.btn-form-siguiente{
+    border: 1px solid white !important;
+    border-radius: 50px !important;
+    text-transform: none !important;
+}
+
+.btn-container-form-siguiente{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 50px;
+}
+
+
 
 .btn-container-form{
     display: flex;
@@ -122,13 +185,98 @@
 
 
 .title-contacto{
-    max-width:350px;
+    max-width:853px;
     .text-contacto-title{
         color: v.$white !important;
+        font-size: 48px !important;
+        width: 603px;
+        line-height: normal;
     }
 }
 
 .v-stepper--alt-labels .v-stepper-header .v-divider {
     align-self: flex-start !important;
     margin: 51px -59px 0 !important;
+}
+
+
+
+@media (max-width:480px) {
+    .v-stepper--alt-labels .v-stepper-header .v-divider{
+        align-self: flex-start !important;
+        margin: 40px -80px 0 !important;
+    }
+
+}
+
+.item-contain-radio {
+    flex-direction: column;
+    @include m.tablet {
+        flex-direction: row;
+    }
+}
+
+.v-window.v-theme--light.v-stepper-window {
+    margin: 0 !important;
+    @include m.tablet {
+        margin: 24px !important;
+    }
+}
+
+.v-container.v-locale--is-ltr{
+    padding: 0 !important;
+    @include m.tablet {
+        padding: 24px !important;
+    }
+}
+
+.section-radio-btn{
+    .v-selection-control .v-label{
+        text-align:center;
+    }
+}
+
+.btn-container-step3{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px ;
+    @media (max-width:480px) {
+        padding-bottom: 10px;
+    }
+}
+
+.custom-stepper {
+    .v-divider {
+        border-color: #ffffff !important;
+        opacity: 10; // Ajusta la transparencia según necesites
+        height: 0.2rem; // Reduce el grosor si se ve demasiado intensa
+    }
+}
+
+.custom-stepper {
+    .v-divider {
+        border-color: rgb(255, 255, 255) !important;
+    }
+}
+
+
+.v-stepper-item.v-stepper-item--selected{
+    .v-avatar.v-theme--light.v-avatar--density-default.v-avatar--variant-flat.v-stepper-item__avatar{
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        background-color: rgba(0, 142, 188, 0.1); /* Fondo azul tenue */
+
+        /* Sombra con los valores proporcionados */
+        -webkit-box-shadow: -0.5px 0 20px 10.5px #487EB0;
+        -moz-box-shadow: -0.5px 0 20px 10.5px #487EB0;
+        box-shadow: -0.5px 0 20px 10.5px #487EB0; /* Sombra difusa y más grande */
+
+        /* Resalta el borde con el color azul */
+        background-color: rgba(0, 142, 188, 0.2); /* Fondo azul más intenso */
+    }
+
+    .v-stepper-item__content{
+        padding-top: 14px;
+    }
+
 }
