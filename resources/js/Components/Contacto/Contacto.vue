@@ -208,6 +208,7 @@
 import { useForm } from '@inertiajs/vue3';
 import provinciaData from "@/json/provincias.json";
 import municipiosData from "@/json/municipios.json";
+import Swal from 'sweetalert2';
 
 
 export default {
@@ -263,19 +264,41 @@ export default {
         enviarFormulario() {
             if (!this.validarFormulario()) return;
 
+            // Mostrar el Swal de carga mientras se envía el formulario
+            Swal.fire({
+                title: "Enviando...",
+                text: "Estamos procesando tu mensaje. Por favor, espera un momento.",
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                },
+            });
+
             this.form.post('/contacto', {
                 onSuccess: () => {
-                    alert('Formulario enviado correctamente');
-
-                    this.form.reset();
-
-                    this.errors = {};
-
-                    this.localidades = [];
-
-                    this.step = 1;
+                    // Cerrar el Swal de carga y mostrar éxito
+                    Swal.fire({
+                        icon: "success",
+                        title: "¡Éxito!",
+                        text: "Formulario enviado correctamente",
+                        confirmButtonText: "Aceptar",
+                    }).then(() => {
+                        // Resetear el formulario y estado
+                        this.form.reset();
+                        this.errors = {};
+                        this.localidades = [];
+                        this.step = 1;
+                    });
                 },
                 onError: (errors) => {
+                    // Cerrar el Swal de carga y mostrar error
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: errors.message || "Ocurrió un error al enviar el mensaje. Por favor, intenta nuevamente.",
+                        confirmButtonText: "Aceptar",
+                    });
+
                     this.errors = errors;
                 }
             });
