@@ -23,7 +23,6 @@
                     <!-- Título y icono -->
                     <v-expansion-panel-title class="container-panel-contact">
                         <span class="service-title">{{ service.title }}</span>
-                        <v-icon class="toggle-icon">{{ activeService === index ? 'mdi-minus' : 'mdi-plus' }}</v-icon>
                     </v-expansion-panel-title>
 
                     <v-expansion-panel-text>
