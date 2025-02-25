@@ -1,25 +1,51 @@
-.clientes-confianza {
-  text-align: left;
-  padding: 20px;
-  color: white;
-  padding-top:8rem ;
-}
+@use '../globales/variables' as v;
 
-.text-clientes{
+  /* Contenedor principal */
+  .clientes-confianza {
+    text-align: start; /* Alineado al centro para una mejor presentación */
+    padding: 90px 20px;
+    color: v.$white;
+  }
+
+  /* Título */
+  .text-clientes {
     max-width: 800px;
-    b{
-        font-size:48px !important;
+    margin: 0;
+    padding-bottom: 20px;
+
+    b {
+      font-size: 48px;
+      display: block;
+
+      @media (max-width: 768px) {
+        font-size: 32px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 24px;
+      }
     }
-}
+  }
 
-.clientes-grid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
+  /* Contenedor de la imagen */
+  .clientes-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.img-clientes{
+  /* Imagen */
+  .img-clientes {
     width: 100%;
-    object-fit: cover;
     max-width: 700px;
-}
+    object-fit: contain; /* Mantiene la imagen sin recortes */
+
+    @media (max-width: 768px) {
+      max-width: 90%;
+    }
+
+    @media (max-width: 480px) {
+      max-width: 95%;
+      transform: translateX(-18px);
+    }
+  }

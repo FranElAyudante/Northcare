@@ -1,4 +1,5 @@
     @use '../globales/variables' as v;
+    @use '../globales/mixins' as m;
 
 .discount-section {
     position: relative;
@@ -95,5 +96,30 @@
         height: 400px;
         top: 45%;
         left: 70%;
+    }
+}
+
+
+$telefono: 480px;
+$tablet: 768px;
+
+// Contenedor de oferta en móviles
+.mobile-offer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+// Imagen de la oferta en móviles
+.mobile-offer-image {
+    width: 100%;
+    height: auto;
+}
+
+// Ocultar contenido de escritorio en móviles
+@media (max-width: $tablet) {
+    .descuento-contenedor, .camino-descuento {
+        display: none;
     }
 }

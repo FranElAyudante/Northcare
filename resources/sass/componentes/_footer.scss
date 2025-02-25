@@ -4,3 +4,29 @@
 .footer-page{
     color: v.$white;
 }
+
+
+/* Estilos del menú de enlaces */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    @media (max-width: 480px){
+        gap: 5px;
+    }
+}
+
+.container-text-footer{
+    @media (max-width: 480px){
+        justify-content: center;
+    }
+    .text-subtitle-footer{
+        @media (max-width: 480px){
+            width: 250px;
+            gap: 5px;
+            margin: 0 auto;
+            padding-top: 5px;
+        }
+    }
+}

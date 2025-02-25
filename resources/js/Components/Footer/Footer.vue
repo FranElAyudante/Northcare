@@ -12,9 +12,9 @@
             </v-col>
 
             <!-- Copyright y desarrollador -->
-            <v-col cols="12" md="6" class="text-center text-md-left">
+            <v-col cols="12" md="6" class="text-center text-md-left container-text-footer">
                 <p>Northcare | Copyright 2025</p>
-                <p class="text-caption font-italic">
+                <p class="text-subtitle-footer text-caption font-italic">
                     Web desarrollada por <strong>Blackcat</strong> con un código feroz y un rendimiento salvaje.
                 </p>
             </v-col>
@@ -24,8 +24,8 @@
                 <div class="footer-links">
                     <a href="#" class="text-white text-decoration-none">Preguntas Frecuentes</a>
                     <a href="#" class="text-white text-decoration-none">Política de Privacidad</a>
-                    <a href="#" class="text-white text-decoration-none">Aviso Legal</a>
                     <a href="#" class="text-white text-decoration-none">Política de Cookies</a>
+                    <a href="#" class="text-white text-decoration-none">Aviso Legal</a>
                 </div>
             </v-col>
         </v-row>
@@ -54,8 +54,11 @@ import imgPrueba from "@images/footer.svg";
     align-items: flex-end; /* Asegura que toque la línea */
     padding-bottom: 0;
     margin-bottom: -5px;/* Acerca más la furgoneta a la línea */
+    transform: translateY(11px);
+    padding-right: 70px;
     @media (max-width:480px) {
         margin-bottom: -15px;
+        margin-right: 80px;
     }
 }
 
@@ -70,13 +73,6 @@ import imgPrueba from "@images/footer.svg";
     margin: 0;
 }
 
-/* Estilos del menú de enlaces */
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
 
 .footer-links a {
     font-size: 14px;

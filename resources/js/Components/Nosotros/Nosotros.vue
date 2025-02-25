@@ -20,7 +20,7 @@
             </v-col>
 
             <!-- Beneficios -->
-            <v-col v-for="(beneficio, index) in beneficios" :key="index" cols="12" sm="4">
+            <v-col v-for="(beneficio, index) in beneficios" :key="index" cols="12" md="4">
                 <v-card class="card-nosotros" elevation="0">
                     <v-avatar class=" avatar-beneficios" border="" color="transparent">{{ index + 1 }}</v-avatar>
                     <h3 class="title-beneficios font-weight-bold">{{ beneficio.titulo }}</h3>
@@ -37,11 +37,12 @@
             </v-row>
 
             <v-row>
-                <v-col v-for="(especialista, index) in especialistas" :key="index" cols="12" sm="4">
+                <!-- Especialistas -->
+                <v-col v-for="(especialista, index) in especialistas" :key="index" cols="6" md="4">
                     <v-card class="card-fotos" elevation="0">
                         <v-img :src="especialista.foto" height="200px" class="grey lighten-2"></v-img>
-                        <v-card-title class="text-center">{{ especialista.nombre }}</v-card-title>
-                        <v-card-subtitle class="text-center">{{ especialista.cargo }}</v-card-subtitle>
+                        <v-card-title class="text-title-nombre text-center">{{ especialista.nombre }}</v-card-title>
+                        <v-card-subtitle class="text-title-cargo text-center">{{ especialista.cargo }}</v-card-subtitle>
                     </v-card>
                 </v-col>
             </v-row>
@@ -52,7 +53,7 @@
                 <v-row class="mt-10">
                     <v-col cols="12">
                         <h2 class="title-nosotros"><b>PREGUNTAS FRECUENTES:</b></h2>
-                        <h3 class="subtitle-nosotros">La respuesta a todas (o casi todas  tus dudas).</h3>
+                        <h3 class="subtitle-nosotros">La respuesta a todas (o casi todas tus dudas).</h3>
                     </v-col>
                 </v-row>
             </div>
@@ -61,8 +62,10 @@
                 <v-col cols="12">
                     <v-expansion-panels class="expansion-preguntas" :elevation="0">
                         <v-expansion-panel v-for="(pregunta, index) in preguntas" :key="index">
-                            <v-expansion-panel-title class="title-preguntas">{{ pregunta.pregunta }}</v-expansion-panel-title>
-                            <v-expansion-panel-text class="text-preguntas">{{ pregunta.respuesta }}</v-expansion-panel-text>
+                            <v-expansion-panel-title class="title-preguntas">{{ pregunta.pregunta
+                            }}</v-expansion-panel-title>
+                            <v-expansion-panel-text class="text-preguntas">{{ pregunta.respuesta
+                            }}</v-expansion-panel-text>
                         </v-expansion-panel>
                     </v-expansion-panels>
                 </v-col>
@@ -90,7 +93,7 @@ const especialistas = ref([
 ]);
 
 const preguntas = ref([
-    { pregunta: "¿A qué tipo de empresas ofrecéis estos servicios?", respuesta: "Nos especializamos en ofrecer soluciones a medida principalmente para todo el sector de la hostelería y la restauración: restaurantes, bares, cafeterías y cadenas de comida rápida, hoteles, hostales, resorts, etc. Sabemos que tu negocio tiene sus propias necesidades, y por ello, aquí encontrarás servicios diseñados específicamente para mantener todo bajo control.." },
+    { pregunta: "¿A qué tipo de empresas ofrecéis estos servicios?", respuesta: "Nos especializamos en ofrecer soluciones a medida principalmente para todo el sector de la hostelería y la restauración: restaurantes, bares, cafeterías y cadenas de comida rápida, hoteles, hostales, resorts, etc. Sabemos que tu negocio tiene sus propias necesidades, y por ello, aquí encontrarás servicios diseñados específicamente para mantener todo bajo control." },
     { pregunta: "¿Necesitamos detener nuestras operaciones durante el mantenimiento?", respuesta: "No, no es necesario. Nos esforzamos por mantener una comunicación clara y coordinada para adaptarnos a los horarios de tu negocio. Nuestro objetivo es realizar el mantenimiento sin interrumpir el funcionamiento del local, asegurando que todo siga en marcha mientras hacemos nuestro trabajo." },
     { pregunta: "¿Necesitamos detener nuestras operaciones durante un servicio de urgencias?", respuesta: "Salvo casos inevitables, no será necesario detener las operaciones. Nos adaptamos a las necesidades de tu negocio, incluso ajustando nuestro horario laboral para realizar las reparaciones en momentos que no interfieran con el funcionamiento del local. Nuestro objetivo es minimizar cualquier interrupción y resolver la urgencia de la forma más eficiente posible." },
     { pregunta: "¿En qué zonas ofrecéis los servicios?", respuesta: "Tanto nuestros trabajos de mantenimiento como los de instalación y montaje cuentan con una garantía de 12 meses. En el caso de instalaciones y montajes, la garantía puede variar dependiendo del tipo de maquinaria." },

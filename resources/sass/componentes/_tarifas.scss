@@ -2,90 +2,114 @@
 @use "../globales/mixins" as m;
 
 .tarifas {
-    margin: auto;
-    padding: 20px;
-    color: v.$white;
+  margin: auto;
+  padding: 20px;
+  color: v.$white;
+}
+
+.title-tarifa {
+  margin-bottom: 80px;
+  height: 200px;
+  max-width: 700px;
+  line-height: normal;
+
+  b,
+  h2 {
+    font-size: 48px;
   }
 
-  .title-tarifa {
-    margin-bottom: 80px;
-    height: 200px;
-    max-width: 700px;
-    line-height: normal;
-    b, h2{
-        font-size: 48px;
-    }
-    @media (max-width: 480px) {
-        max-width: 100%;
-        height: 130px;
-        font-size: 1rem;
-        margin: 0;
-    }
+  @media (max-width: 480px) {
+    b,h2 {
+        font-size: 32px;
+      }
   }
-  .tarifas-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 30px;
-  }
+}
+
+.tarifas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+
   @media (min-width: 768px) {
-    .tarifas-grid {
-      grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px){
+    .tarifas-grid{
+        gap: 35px;
     }
-  }
+}
 
-  .tarifa-item {
-    padding: 20px;
-    border-radius: 20px;
-    text-align: left;
-    display: flex !important;
-    flex-direction: column !important;
-  }
+.tarifa-item {
+  padding: 20px;
+  border-radius: 20px;
+  text-align: left;
+  display: flex !important;
+  flex-direction: column !important;
+}
 
-  .tarifa-content{
-    padding: 25px !important;
-    margin-top: 10px !important;
-    border-radius: 40px !important;
-  }
+.tarifa-content {
+  padding: 25px !important;
+  margin-top: 10px !important;
+  border-radius: 40px !important;
+}
 
-  .tarifa-title {
-    font-size: 20px;
-    font-weight: bold;
-    background-color: transparent !important; /* Fondo transparente */
-    border: none !important; /* Asegúrate de que no tenga bordes que interfieran */
-    color: white;
-    padding: 0px !important;
+.tarifa-title {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: transparent !important;
+  border: none !important;
+  color: white;
+  padding: 0px !important;
+  @media (max-width: 480px){
+    text-align: center;
   }
+}
 
-  .ul-tarifa {
-    list-style: none;
-    padding: 0;
+.ul-tarifa {
+  list-style: none;
+  padding: 0;
+}
+
+.ul-tarifa li {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 4px;
+  font-size: 1rem;
+}
+
+.check-icon {
+  font-size: 20px;
+}
+
+.tarifa-footer {
+  margin-top: 50px;
+  text-align: left;
+  padding-bottom: 200px;
+  @media (max-width: 480px){
+    padding-bottom: 80px;
+    margin-top: 0;
   }
-  .ul-tarifa li {
-    display: flex;
-    align-items: start;
-    gap: 10px;
-    margin-bottom: 8px;
-    padding: 4px;
-    font-size: 1rem;
-  }
-  .check-icon {
-    font-size: 20px;
-  }
-  .tarifa-footer {
-    margin-top: 50px;
-    text-align: left;
-    padding-bottom: 200px;
-  }
-  .tarifa-info {
+}
+
+.tarifa-info {
+  font-size: 12px;
+  color: v.$white;
+  margin-bottom: 15px;
+  @media (max-width: 480px){
     font-size: 12px;
-    color: v.$white;
-    margin-bottom: 15px;
+    margin-bottom: 0 ;
   }
-  .btn-tarifas {
-    color: white;
-    border-color: white;
-    width: 100%;
-    height: 59px !important;
-    margin-top: 30px !important;
-  }
+}
+
+.btn-tarifas {
+  color: white;
+  border-color: white;
+  width: 100%;
+  height: 59px !important;
+  margin-top: 30px !important;
+}

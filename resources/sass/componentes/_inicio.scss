@@ -19,6 +19,14 @@ $desktopXXL: 1400px;
     align-items: flex-start;
     justify-content: center;
     height: 100% !important;
+    @media (max-width: 480px) {
+        padding-top: 80px !important;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        min-height: 0;
+    }
+
 }
 
 .title-home{
@@ -99,9 +107,6 @@ $desktopXXL: 1400px;
     padding-top: 120px !important;
     width: 100% !important;
     height: 100% !important;
-    @media (max-width: $desktopXL){
-
-    }
 }
 
 .image-furgo{
@@ -139,4 +144,66 @@ $desktopXXL: 1400px;
     @media (max-width: $desktop) {
         display: none !important;
     }
+}
+
+
+// Contenedor de contenido móvil
+.mobile-content {
+}
+
+// Imagen en móviles
+.mobile-illustration {
+    width: 100%;
+    height: auto;
+}
+
+// Título en móviles
+.mobile-title {
+    font-size: 36px;
+    color: v.$white;
+    margin-bottom: 10px;
+    line-height: normal;
+}
+
+// Subtítulo en móviles
+.mobile-subtitle {
+    font-size: 18px;
+    color: v.$white;
+    max-width: 350px;
+    margin-bottom: 25px;
+    line-height: normal;
+}
+
+// Ocultar contenido de escritorio en móviles
+@media (max-width: $tablet) {
+    .home-images {
+        display: none;
+    }
+}
+
+.container-btn-movil-inicio{
+    background-color: transparent !important; /* Fondo transparente */
+    color: white !important; /* Texto blanco */
+    border: none !important; /* Sin bordes */
+    box-shadow: none !important; /* Sin sombras */
+    text-transform: none;
+}
+
+.btn-movil-inicio {
+    border-color: white;
+    width:190px;
+    height: 50px !important;
+    font-size: 10px !important;
+  }
+
+.container-subtitle-movile{
+    max-width: 341px;
+}
+
+.container-title-movile{
+    max-width: 331px;
+}
+
+.container-text-movile-inicio{
+    padding: 10px;
 }

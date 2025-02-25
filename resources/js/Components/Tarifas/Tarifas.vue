@@ -35,7 +35,6 @@
                     Consultar Precios
                 </v-btn>
             </a>
-
         </div>
     </section>
 </template>
@@ -54,7 +53,7 @@ const tarifas = ref([
         color: "#FFFFFF"
     },
     {
-        nombre: "Tarifa Complet (Trimestral)",
+        nombre: "Tarifa Complete (Trimestral)",
         beneficios: [
             "Mantenimiento preventivo trimestral de instalaciones de climatización.",
             "Mantenimiento preventivo trimestral de cámaras de refrigeración y congelación.",

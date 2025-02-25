@@ -39,33 +39,33 @@
 
                 <template v-slot:item.1>
                     <v-card class="title-card-contact" title="¿Qué tipo de agrupación eres?" flat>
-                        <v-container>
+                        <v-container class="container-step-selection">
                             <v-radio-group v-model="form.tipo_empresa">
                                 <v-row>
-                                    <v-col cols="6" md="4">
+                                    <v-col cols="12" md="4">
                                         <v-radio label="Restauración" value="restauracion"
                                             class="custom-radio item-contain-radio"></v-radio>
                                     </v-col>
-                                    <v-col cols="6" md="4">
+                                    <v-col cols="12" md="4">
                                         <v-radio class="item-contain-radio" label="Hostelería"
                                             value="hosteleria"></v-radio>
                                     </v-col>
-                                    <v-col cols="6" md="4">
+                                    <v-col cols="12" md="4">
                                         <v-radio class="item-contain-radio" label="Alimentación"
                                             value="alimentacion"></v-radio>
                                     </v-col>
                                 </v-row>
 
                                 <v-row class="section-radio-btn">
-                                    <v-col cols="6" md="4">
+                                    <v-col cols="12" md="4">
                                         <v-radio class="item-contain-radio" label="Comercio (minorista)"
                                             value="comercio"></v-radio>
                                     </v-col>
-                                    <v-col cols="6" md="4">
+                                    <v-col cols="12" md="4">
                                         <v-radio class="item-contain-radio" label="Grandes superficies"
                                             value="superficies"></v-radio>
                                     </v-col>
-                                    <v-col cols="6" md="4">
+                                    <v-col cols="12" md="4">
                                         <v-radio class="item-contain-radio" label="Cadenas de tiendas"
                                             value="cadenas"></v-radio>
                                     </v-col>
@@ -77,15 +77,15 @@
                         <v-container>
                             <v-radio-group v-model="form.urgencia">
                                 <v-row>
-                                    <v-col cols="6" md="4">
+                                    <v-col cols="12" md="4">
                                         <v-radio class="item-contain-radio" label="Sin prisa"
                                             value="sin-prisa"></v-radio>
                                     </v-col>
-                                    <v-col cols="6" md="4">
+                                    <v-col cols="12" md="4">
                                         <v-radio class="item-contain-radio" label="Un poco de prisa"
                                             value="poco-prisa"></v-radio>
                                     </v-col>
-                                    <v-col cols="6" md="4">
+                                    <v-col cols="12" md="4">
                                         <v-radio class="item-contain-radio" label="Inmediatamente"
                                             value="inmediatamente"></v-radio>
                                     </v-col>
@@ -93,7 +93,7 @@
                             </v-radio-group>
                             <div class="btn-container-form-siguiente">
                                 <v-btn :height="$vuetify.display.mdAndUp ? 79 : 50"
-                                    :min-width="$vuetify.display.mdAndUp ? 224 : '100%'" variant="text"
+                                    :min-width="$vuetify.display.mdAndUp ? 224 : '40%'" variant="text"
                                     class="btn-form-siguiente" @click="step++">
                                     Siguiente
                                 </v-btn>
@@ -194,8 +194,12 @@
         </v-card>
 
         <div class="imgNorte-conteiner">
-            <img src="/images/CuidandoNorte.png" alt="CuidandoNorte" class="img-norte" />
+            <picture>
+                <source srcset="/images/CuidandoNorteMovil.png" media="(max-width: 480px)">
+                <img src="/images/CuidandoNorte.png" alt="CuidandoNorte" class="img-norte">
+            </picture>
         </div>
+
 
     </v-container>
 </template>
