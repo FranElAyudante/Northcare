@@ -32,7 +32,7 @@
 
         <!-- Mostrar solo en móviles -->
         <div v-if="isMobile" class="mobile-offer">
-            <img src="/images/OfertaMovil.svg" alt="Oferta especial" class="mobile-offer-image" />
+            <img :src=ofertamovil alt="Oferta especial" class="mobile-offer-image" />
         </div>
     </div>
 </template>
@@ -41,6 +41,8 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import descuento50 from "@images/descuento50.svg";
 import meses from "@images/meses.svg";
+import ofertamovil from "@images/OfertaMovil.svg";
+
 
 
 const isMobile = ref(window.innerWidth < 768);

@@ -195,8 +195,8 @@
 
         <div class="imgNorte-conteiner">
             <picture>
-                <source srcset="/images/CuidandoNorteMovil.png" media="(max-width: 480px)">
-                <img src="/images/CuidandoNorte.png" alt="CuidandoNorte" class="img-norte">
+                <source :srcset="cuidandonorteMovil" media="(max-width: 480px)">
+                <img :src="cuidandonorte" alt="CuidandoNorte" class="img-norte">
             </picture>
         </div>
 
@@ -204,119 +204,107 @@
     </v-container>
 </template>
 
-<script>
+<script setup>
+import { ref, reactive, watch } from 'vue';  // Importa los hooks de Vue
 import { useForm } from '@inertiajs/vue3';
 import provinciaData from "@/json/provincias.json";
 import municipiosData from "@/json/municipios.json";
+import cuidandonorte from "@images/CuidandoNorte.png";
+import cuidandonorteMovil from '@images/CuidandoNorteMovil.png';
+
 import Swal from 'sweetalert2';
 
+// Datos reactivos
+const step = ref(1);
+const form = useForm({
+    tipo_empresa: '',
+    urgencia: '',
+    servicio: '',
+    empresa: '',
+    nombre: '',
+    email: '',
+    telefono: '',
+    provincia: '',
+    localidad: '',
+    privacidad: false,
+});
+const errors = reactive({});
+const provincias = provinciaData;
+const localidades = ref([]);
 
-export default {
-    data() {
-        return {
-            step: 1,
-            form: useForm({
-                tipo_empresa: '',
-                urgencia: '',
-                servicio: '',
-                empresa: '',
-                nombre: '',
-                email: '',
-                telefono: '',
-                provincia: '',
-                localidad: '',
-                privacidad: false,
-            }),
-            errors: {},
-            provincias: provinciaData,
-            localidades: [],
-        };
-    },
+// Watcher para detectar el cambio en la provincia seleccionada
+watch(() => form.provincia, (nuevoNombre) => {
+    filtrarLocalidades(nuevoNombre);
+});
 
-    watch: {
-        // Detectar cambio en la provincia seleccionada
-        "form.provincia"(nuevoNombre) {
-            this.filtrarLocalidades(nuevoNombre);
-        }
-    },
-
-    methods: {
-        filtrarLocalidades(nombreProvincia) {
-            if (!nombreProvincia) {
-                this.localidades = [];
-                this.form.localidad = "";
-                return;
-            }
-
-            // Buscar el ID de la provincia seleccionada
-            const provinciaSeleccionada = this.provincias.find(p => p.nm === nombreProvincia);
-            if (!provinciaSeleccionada) return;
-
-            // Filtrar municipios que coincidan con los dos primeros dígitos del ID de la provincia
-            this.localidades = municipiosData
-                .filter(m => m.id.startsWith(provinciaSeleccionada.id))
-                .map(m => m.nm); // Solo extraemos los nombres (nm)
-
-            // Resetear localidad si cambia de provincia
-            this.form.localidad = "";
-        },
-
-        enviarFormulario() {
-            if (!this.validarFormulario()) return;
-
-            // Mostrar el Swal de carga mientras se envía el formulario
-            Swal.fire({
-                title: "Enviando...",
-                text: "Estamos procesando tu mensaje. Por favor, espera un momento.",
-                allowOutsideClick: false,
-                didOpen: () => {
-                    Swal.showLoading();
-                },
-            });
-
-            this.form.post('/contacto', {
-                onSuccess: () => {
-                    // Cerrar el Swal de carga y mostrar éxito
-                    Swal.fire({
-                        icon: "success",
-                        title: "¡Éxito!",
-                        text: "Formulario enviado correctamente",
-                        confirmButtonText: "Aceptar",
-                    }).then(() => {
-                        // Resetear el formulario y estado
-                        this.form.reset();
-                        this.errors = {};
-                        this.localidades = [];
-                        this.step = 1;
-                    });
-                },
-                onError: (errors) => {
-                    // Cerrar el Swal de carga y mostrar error
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: errors.message || "Ocurrió un error al enviar el mensaje. Por favor, intenta nuevamente.",
-                        confirmButtonText: "Aceptar",
-                    });
-
-                    this.errors = errors;
-                }
-            });
-        },
-
-        validarFormulario() {
-            this.errors = {};
-
-            if (!this.form.empresa) this.errors.empresa = 'Este campo es obligatorio';
-            if (!this.form.nombre) this.errors.nombre = 'Este campo es obligatorio';
-            if (!this.form.email) this.errors.email = 'Este campo es obligatorio';
-            if (!this.form.telefono) this.errors.telefono = 'Este campo es obligatorio';
-            if (!this.form.provincia) this.errors.provincia = 'Este campo es obligatorio';
-            if (!this.form.localidad) this.errors.localidad = 'Este campo es obligatorio';
-            if (!this.form.privacidad) this.errors.privacidad = 'Debes aceptar la Política de Privacidad';
-
-            return Object.keys(this.errors).length === 0;
-        }
+// Funciones
+function filtrarLocalidades(nombreProvincia) {
+    if (!nombreProvincia) {
+        localidades.value = [];
+        form.localidad = "";
+        return;
     }
-};
+
+    const provinciaSeleccionada = provincias.find(p => p.nm === nombreProvincia);
+    if (!provinciaSeleccionada) return;
+
+    localidades.value = municipiosData
+        .filter(m => m.id.startsWith(provinciaSeleccionada.id))
+        .map(m => m.nm);
+
+    form.localidad = "";
+}
+
+function enviarFormulario() {
+    if (!validarFormulario()) return;
+
+    Swal.fire({
+        title: "Enviando...",
+        text: "Estamos procesando tu mensaje. Por favor, espera un momento.",
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        },
+    });
+
+    form.post('/contacto', {
+        onSuccess: () => {
+            Swal.fire({
+                icon: "success",
+                title: "¡Éxito!",
+                text: "Formulario enviado correctamente",
+                confirmButtonText: "Aceptar",
+            }).then(() => {
+                form.reset();
+                Object.keys(errors).forEach(key => errors[key] = null);  // Limpia los errores
+                localidades.value = [];
+                step.value = 1;
+            });
+        },
+        onError: (err) => {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: err.message || "Ocurrió un error al enviar el mensaje. Por favor, intenta nuevamente.",
+                confirmButtonText: "Aceptar",
+            });
+
+            Object.assign(errors, err);
+        }
+    });
+}
+
+function validarFormulario() {
+    Object.keys(errors).forEach(key => errors[key] = null);  // Limpia los errores previos
+
+    if (!form.empresa) errors.empresa = 'Este campo es obligatorio';
+    if (!form.nombre) errors.nombre = 'Este campo es obligatorio';
+    if (!form.email) errors.email = 'Este campo es obligatorio';
+    if (!form.telefono) errors.telefono = 'Este campo es obligatorio';
+    if (!form.provincia) errors.provincia = 'Este campo es obligatorio';
+    if (!form.localidad) errors.localidad = 'Este campo es obligatorio';
+    if (!form.privacidad) errors.privacidad = 'Debes aceptar la Política de Privacidad';
+
+    return Object.keys(errors).length === 0;
+}
 </script>
