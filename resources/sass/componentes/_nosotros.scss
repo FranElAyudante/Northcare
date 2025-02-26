@@ -1,49 +1,50 @@
-@use '../globales/variables' as v;
+@use "../globales/variables" as v;
+@use "../globales/mixins" as m;
 
-.expansion-preguntas{
+
+.expansion-preguntas {
     background-color: transparent;
     border-color: transparent;
     color: white;
-    .v-expansion-panel{
+    .v-expansion-panel {
         background-color: transparent;
         color: white;
     }
 }
 
-.v-expansion-panel:not(:first-child)::after{
+.v-expansion-panel:not(:first-child)::after {
     background-color: #4b4a4a;
 }
 
-.title-preguntas{
+.title-preguntas {
     font-size: 22px !important;
 }
-.text-preguntas{
+.text-preguntas {
     font-size: 15px !important;
     font-weight: 300;
 }
 
-.container-nosotros-general{
+.container-nosotros-general {
     padding-top: 90px;
     padding-left: 50px;
     padding-right: 25px;
     padding-bottom: 60px;
 }
 
-.card-nosotros{
+.card-nosotros {
     text-align: center !important;
     color: white !important;
     padding: 20px !important;
     background-color: transparent !important;
-    .v-avatar{
+    .v-avatar {
         border-radius: 50px !important;
         border-color: white !important;
     }
 }
 
-
 .card-fotos {
     padding: auto;
-    color:white !important;
+    color: white !important;
     position: relative;
     overflow: hidden;
     background-color: #4b4a4a; /* Color de fondo */
@@ -54,7 +55,7 @@
 
 .card-fotos .v-img {
     position: relative;
-    z-index:1 ;
+    z-index: 1;
 }
 
 .card-fotos .v-img::before {
@@ -64,13 +65,17 @@
     left: 0;
     width: 92%; /* Ajusta el ancho del difuminado */
     height: 100%;
-    background: linear-gradient(to left, rgba(66, 66, 66, 1) 15%, rgba(0, 0, 0, 0) 60%);
+    background: linear-gradient(
+        to left,
+        rgba(66, 66, 66, 1) 15%,
+        rgba(0, 0, 0, 0) 60%
+    );
     @media (max-width: 480px) {
         width: 100%;
     }
 }
 
-.title-nosotros{
+.title-nosotros {
     font-size: 2.5rem;
     line-height: 1;
     @media (max-width: 480px) {
@@ -80,7 +85,7 @@
     }
 }
 
-.subtitle-nosotros{
+.subtitle-nosotros {
     font-size: 48px;
     line-height: normal;
     width: 600px;
@@ -91,8 +96,7 @@
     }
 }
 
-
-.title-nosotros-beneficios{
+.title-nosotros-beneficios {
     font-size: 48px;
     width: 650px;
     padding-bottom: 20px;
@@ -104,7 +108,7 @@
     }
 }
 
-.subtitle-nosotros-beneficios{
+.subtitle-nosotros-beneficios {
     font-size: 18px;
     color: v.$white;
     width: 550px;
@@ -115,17 +119,17 @@
     }
 }
 
-.container-text-preguntas{
+.container-text-preguntas {
     max-width: 550px;
     padding-left: 25px !important ;
-    .v-col.v-col-12{
+    .v-col.v-col-12 {
         padding-top: 70px !important;
     }
 }
 
-.title-equipo{
+.title-equipo {
     font-size: 48px;
-    line-height:normal;
+    line-height: normal;
     max-width: 800px;
     padding-left: 20px;
     padding-bottom: 90px;
@@ -136,26 +140,26 @@
     }
 }
 
-.container-equipo-text{
+.container-equipo-text {
     max-width: 550px;
 }
 
-.avatar-beneficios{
+.avatar-beneficios {
     width: 58px !important;
     height: 58px !important;
 }
 
-.title-beneficios{
+.title-beneficios {
     padding-top: 25px;
     padding-bottom: 25px;
 }
 
-@media(max-width:480px){
-    .text-title-nombre{
+@media (max-width: 480px) {
+    .text-title-nombre {
         font-size: 14px !important;
     }
 
-    .text-title-cargo{
+    .text-title-cargo {
         font-size: 14px !important;
     }
 }
@@ -217,7 +221,6 @@
         font-size: 26px;
         text-align: left;
         padding: 0 10px;
-
     }
 
     .container-text-preguntas {
@@ -263,16 +266,23 @@
     }
 }
 
-
 /* FIX - STYLES */
 .v-card .v-card-title {
     line-height: normal !important;
     padding: 0;
-
 }
 
 .card-nosotros {
+    padding: 0 !important;
     .cargo-name {
         margin-top: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        @include m.tablet {
+            margin-top: 1rem;
+        }
     }
 }

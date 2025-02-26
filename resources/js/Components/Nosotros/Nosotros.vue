@@ -43,7 +43,7 @@
                         <v-img :src="especialista.foto" height="200px" class="grey"></v-img>
                         <div class="cargo-name">
                             <v-card-title class="text-title-nombre text-center">{{ especialista.nombre }}</v-card-title>
-                            <v-card-subtitle class="text-title-cargo text-center">{{ especialista.cargo }}</v-card-subtitle>
+                            <v-card-subtitle class="text-title-cargo text-center" v-html="especialista.cargo"></v-card-subtitle>
                         </div>
                     </v-card>
                 </v-col>
@@ -90,11 +90,11 @@ const especialistas = ref([
     { nombre: "César Melgarejo", cargo: "Gerente", foto: "/Images/fotoPersona.svg" },
     { nombre: "Majid Karaouni", cargo: "Colaborador autónomo", foto: "/Images/fotoPersona.svg" },
     { nombre: "Esteban Monterrubio", cargo: "Técnico supervisor", foto: "/Images/fotoPersona.svg" },
-    { nombre: "Adrián Setién", cargo: "Técnico Especialista zona Cantabria", foto: "/Images/fotoPersona.svg" },
-    { nombre: "Diego Aragón", cargo: "Técnico Especialista zona Asturias", foto: "/Images/fotoPersona.svg" },
-    { nombre: "Gonzalo Mouton", cargo: "Técnico Especialista zona Vizcaya", foto: "/Images/fotoPersona.svg" },
-    { nombre: "George Sebastian Proca", cargo: "Técnico Especialista zona Vizcaya", foto: "/Images/fotoPersona.svg" },
-    { nombre: "Mehdi Mohammed", cargo: "Técnico Especialista zona Guipúzcoa", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Adrián Setién", cargo: "Técnico Especialista<br> zona Cantabria", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Diego Aragón", cargo: "Técnico Especialista<br> zona Asturias", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Gonzalo Mouton", cargo: "Técnico Especialista<br> zona Vizcaya", foto: "/Images/fotoPersona.svg" },
+    { nombre: "George Sebastian Proca", cargo: "Técnico Especialista<br> zona Vizcaya", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Mehdi Mohammed", cargo: "Técnico Especialista<br> zona Guipúzcoa", foto: "/Images/fotoPersona.svg" },
     { nombre: "Abdelilah Karmouche", cargo: "Técnico de Oficios", foto: "/Images/fotoPersona.svg" },
     { nombre: "Rubén Ortiz", cargo: "Responsable de Logística", foto: "/Images/fotoPersona.svg" }
 ]);
