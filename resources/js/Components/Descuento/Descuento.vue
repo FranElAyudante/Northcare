@@ -17,9 +17,9 @@
                     </div>
 
                     <div class="discount-text">
-                        <v-img src="/images/descuento50.svg" alt="Descuento 50%" class="descuento-image"></v-img>
+                        <img :src=descuento50 alt="Descuento 50%" class="descuento-image" />
                         <p>de descuento en los primeros</p>
-                        <v-img src="/images/meses.svg" alt="Meses de descuento" class="mes-image"></v-img>
+                        <img :src=meses alt="Meses de descuento" class="mes-image" />
                         <p>en locales de nueva apertura</p>
                     </div>
 
@@ -39,6 +39,9 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import descuento50 from "@images/descuento50.svg";
+import meses from "@images/meses.svg";
+
 
 const isMobile = ref(window.innerWidth < 768);
 

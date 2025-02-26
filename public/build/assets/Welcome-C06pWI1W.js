@@ -1,0 +1,1 @@
+import{G as o}from"./GuestLayout-DYPff9xf.js";import{c as t,o as e}from"./app-IECsqwXd.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./NavLink-DqwJlDzO.js";const n={__name:"Welcome",setup(r){return(a,c)=>(e(),t(o))}};export{n as default};
