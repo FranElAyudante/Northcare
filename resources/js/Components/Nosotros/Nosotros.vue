@@ -39,10 +39,12 @@
             <v-row>
                 <!-- Especialistas -->
                 <v-col v-for="(especialista, index) in especialistas" :key="index" cols="6" md="4">
-                    <v-card class="card-fotos" elevation="0">
-                        <v-img :src="especialista.foto" height="200px" class="grey lighten-2"></v-img>
-                        <v-card-title class="text-title-nombre text-center">{{ especialista.nombre }}</v-card-title>
-                        <v-card-subtitle class="text-title-cargo text-center">{{ especialista.cargo }}</v-card-subtitle>
+                    <v-card class="card-fotos card-nosotros" elevation="0">
+                        <v-img :src="especialista.foto" height="200px" class="grey"></v-img>
+                        <div class="cargo-name">
+                            <v-card-title class="text-title-nombre text-center">{{ especialista.nombre }}</v-card-title>
+                            <v-card-subtitle class="text-title-cargo text-center">{{ especialista.cargo }}</v-card-subtitle>
+                        </div>
                     </v-card>
                 </v-col>
             </v-row>
@@ -83,13 +85,18 @@ const beneficios = ref([
     { titulo: "Profesionales", descripcion: "Nuestro equipo está formado por expertos especializados que aportan conocimiento, experiencia y un trato impecable." }
 ]);
 
+
 const especialistas = ref([
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" },
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" },
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" },
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" },
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" },
-    { nombre: "Nombre Apellido", cargo: "Cargo", foto: "/Images/fotoPersona.svg" }
+    { nombre: "César Melgarejo", cargo: "Gerente", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Majid Karaouni", cargo: "Colaborador autónomo", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Esteban Monterrubio", cargo: "Técnico supervisor", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Adrián Setién", cargo: "Técnico Especialista zona Cantabria", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Diego Aragón", cargo: "Técnico Especialista zona Asturias", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Gonzalo Mouton", cargo: "Técnico Especialista zona Vizcaya", foto: "/Images/fotoPersona.svg" },
+    { nombre: "George Sebastian Proca", cargo: "Técnico Especialista zona Vizcaya", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Mehdi Mohammed", cargo: "Técnico Especialista zona Guipúzcoa", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Abdelilah Karmouche", cargo: "Técnico de Oficios", foto: "/Images/fotoPersona.svg" },
+    { nombre: "Rubén Ortiz", cargo: "Responsable de Logística", foto: "/Images/fotoPersona.svg" }
 ]);
 
 const preguntas = ref([

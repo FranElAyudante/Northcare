@@ -262,3 +262,17 @@
         height: 150px !important;
     }
 }
+
+
+/* FIX - STYLES */
+.v-card .v-card-title {
+    line-height: normal !important;
+    padding: 0;
+
+}
+
+.card-nosotros {
+    .cargo-name {
+        margin-top: 1rem;
+    }
+}
