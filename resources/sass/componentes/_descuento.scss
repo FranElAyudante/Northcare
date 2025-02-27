@@ -9,7 +9,6 @@
     align-items: center;
     justify-content: center;
     color: v.$white;
-    background-image: url('/images/sombra.svg');
     background-size: cover;
     background-position: center;
 
@@ -25,6 +24,15 @@
         z-index: 1;
     }
 }
+
+.descuento-contenedor{
+    .discount-section{
+        .overlay{
+            position: absolute;
+        }
+    }
+}
+
 
 /* Ajustes para los textos pequeños */
 .discount-text-left,

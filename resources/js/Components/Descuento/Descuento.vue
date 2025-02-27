@@ -9,7 +9,9 @@
                 <!-- Sección de Descuento -->
                 <v-col cols="12" class="discount-section">
                     <!-- Overlay Oscuro -->
-                    <div class="overlay"></div>
+                    <div class="overlay">
+                        <img :src="sombra" alt="sombra">
+                    </div>
 
                     <!-- Textos -->
                     <div class="discount-text-left">
@@ -42,6 +44,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 import descuento50 from "@images/descuento50.svg";
 import meses from "@images/meses.svg";
 import ofertamovil from "@images/OfertaMovil.svg";
+import sombra from "@images/sombra.svg";
 
 
 
