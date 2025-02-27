@@ -160,7 +160,7 @@
     }
 
     .text-title-cargo {
-        font-size: 14px !important;
+        font-size: 12px !important;
     }
 }
 
@@ -283,6 +283,15 @@
         align-content: center;
         @include m.tablet {
             margin-top: 1rem;
+        }
+    }
+}
+
+
+.cards-empleados{
+    @media (max-width: 480px){
+        .v-col-md-4.v-col-6{
+            padding: 12px 0;
         }
     }
 }

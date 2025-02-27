@@ -36,7 +36,7 @@
                 </v-col>
             </v-row>
 
-            <v-row>
+            <v-row class="cards-empleados">
                 <!-- Especialistas -->
                 <v-col v-for="(especialista, index) in especialistas" :key="index" cols="6" md="4">
                     <v-card class="card-fotos card-nosotros" elevation="0">

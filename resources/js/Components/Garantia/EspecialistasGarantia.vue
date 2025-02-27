@@ -2,7 +2,8 @@
     <div class="especialistas-garantia">
         <section class="especialistas">
             <div class="conteiner-especialistas">
-                <img class="img-especialistas" :src="especialistas" alt="Especialistas">
+                <img v-if="!isMobile" class="img-especialistas" :src="especialistas" alt="Especialistas" />
+                <img v-else class="img-especialistas-movil" :src="especialistasMovil" alt="Especialistas Móvil" />
             </div>
             <div class="conteiner-descripcion">
                 <p class="descripcion">
@@ -25,7 +26,7 @@
                 <v-row>
                     <v-col cols="12" md="7" class="image-container">
                         <div class="contain-image-kitchen">
-                            <img :src="kitchen" alt="Cocina industrial" class="info-image" />
+                            <v-img :src="kitchen" alt="Cocina industrial" class="info-image" />
                         </div>
                     </v-col>
                     <v-col md="5" class="text-garantia">
@@ -46,9 +47,22 @@
 import { reactive } from 'vue';  // Importamos reactive para la reactividad
 
 // Imagen importada
-import especialistas from '@images/ESPECIALISTAS.png';
+import especialistas from '@images/ESPECIALISTAS.svg';
+import especialistasMovil from '@images/EspecialistasMovil.png';
 import kitchen from '@images/kitchen.svg';
 
+import { ref, onMounted } from 'vue';
+
+const isMobile = ref(false);
+
+const checkScreenSize = () => {
+    isMobile.value = window.innerWidth <= 768; // Puedes ajustar el ancho según tu diseño
+};
+
+onMounted(() => {
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+});
 
 // Definimos la estructura de datos
 const infoItems = reactive([

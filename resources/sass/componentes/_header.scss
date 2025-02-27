@@ -74,6 +74,7 @@ $desktopXXL: 1400px;
     }
 }
 
+
 .menu-icon {
     cursor: pointer;
     font-size: 28px;
@@ -100,6 +101,10 @@ $desktopXXL: 1400px;
         flex-direction: column;
         gap: 10px;
         color: v.$white
+}
+
+.mobile-menu a {
+    text-decoration: none !important;
 }
 
 

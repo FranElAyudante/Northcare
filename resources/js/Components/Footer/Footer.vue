@@ -57,8 +57,7 @@ import imgPrueba from "@images/footer.svg";
     transform: translateY(11px);
     padding-right: 70px;
     @media (max-width:480px) {
-        margin-bottom: -15px;
-        margin-right: 80px;
+        margin-bottom: -6px;
     }
 }
 
